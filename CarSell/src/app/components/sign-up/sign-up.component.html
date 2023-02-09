@@ -1,13 +1,47 @@
 <body>
-	<form id="msform">
+	<form id="msform" #userForm="ngForm" > 
 		<fieldset>
 		  <h2 class="fs-title">Create your account</h2>
-		  <input type="text" name="email" placeholder="Full Name" />
-		  <input type="text" name="email" placeholder="User Name" />
-		  <input type="text" name="email" placeholder="Email" />
-		  <input type="password" name="pass" placeholder="Password" />
-		  <input type="password" name="cpass" placeholder="Confirm Password" />
-		  <input type="button" name="next" class="next action-button" value="Submit" />
+		  <input type="text" name="name" placeholder="Full Name" class="form-control" required minlength="4" [(ngModel)]="objUser.name" #name="ngModel" ngModel/>
+		  <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">		
+			<p *ngIf="name.errors?.['required']" [ngClass]="'text-danger'" >
+				 Name is required!
+			  </p>
+			  <small *ngIf="name.errors?.['minlength']" [ngClass]="'text-danger'">
+				Name must be at least 4 characters long!
+			  </small>
+		  </div>
+		  <input type="text" name="username" placeholder="User Name"class="form-control" required minlength="2"[(ngModel)]="objUser.username" #username="ngModel" ngModel/>	  
+		  <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">		
+			<p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
+				 User Name is required!
+			  </p>
+			  <small *ngIf="username.errors?.['minlength']" [ngClass]="'text-danger'">
+				User name must be at least 2 characters long!
+			  </small>
+		  </div> 
+		  <input type="text" name="email" placeholder="Email" class="form-control" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel />
+		  <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+			<p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
+		      Email is required!
+			</p>
+		  </div>
+		  <input type="password" name="pass" placeholder="Password" class="form-control" required [(ngModel)]="objUser.password" #password="ngModel"  ngModel/>
+		  <div *ngIf="password.invalid && (password.dirty || email.touched)" >
+			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
+		      Password is required!
+			</p>
+		  </div>
+		  <input type="password" name="cpass" placeholder="Confirm Password"class="form-control" required required Regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
+		  <div *ngIf="passwordAgain.invalid && (password.dirty || email.touched)" >
+			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
+		      Password is required!
+			</p>
+		  </div>
+		  <button type="button" id="btnSubmit" name="btnSubmit" class="btn btn-ptimary"(click)="btnSubmit_click()" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>
 	  </form>
+	 <div class="card-footer">
+		{{userForm.value | json}}
+	  </div>
 </body>

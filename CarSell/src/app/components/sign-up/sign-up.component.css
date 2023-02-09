@@ -54,7 +54,7 @@ body {
   font-size: 13px;
 }
 /*buttons*/
-#msform .action-button {
+#btnSubmit {
   width: 100px;
   background: #27AE60;
   font-weight: bold;
@@ -131,4 +131,7 @@ body {
 #progressbar li.active:before,  #progressbar li.active:after{
   background: #27AE60;
   color: white;
+}
+.validation-error{
+  color: red;
 }
