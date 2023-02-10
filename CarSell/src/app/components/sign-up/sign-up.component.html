@@ -31,22 +31,19 @@
 		  </div>
 		  
 		  <input type="password" name="pass" placeholder="Password" class="form-control" required [(ngModel)]="objUser.password" #password="ngModel"  ngModel/>
-		  <div *ngIf="password.invalid && (password.dirty || email.touched)" >
+		  <div *ngIf="password.invalid && (password.dirty || password.touched)" >
 			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
 		      Password is required!
 			</p>
 		  </div>
-		  <input type="password" name="cpass" placeholder="Confirm Password" pattern="{{ password.value }}" class="form-control" required [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
-		  <div *ngIf="passwordAgain.invalid && (password.dirty || email.touched)" >
-			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
-		      Password is required!
-			</p>
-			<!--<div [hidden]="!passwordAgain.errors.['pattern']" [ngClass]="'text-danger'">
-				Password does not match
-			</div>-->
 
-			
+		  <input type="password" name="passwordAgain" placeholder="Password" class="form-control" required [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
+		  <div *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched)" >
+			<p *ngIf="passwordAgain.errors?.['required']" [ngClass]="'text-danger'" >
+		      Password is required!
+			</p>
 		  </div>
+
 		  <button type="button" id="btnSubmit" name="btnSubmit" class="btn btn-ptimary"(click)="btnSubmit_click()" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>
 	  </form>
