@@ -1,7 +1,8 @@
 import { BuiltinTypeName } from '@angular/compiler';
 import { Component ,OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { User } from 'src/app/model/signUp.model';
+
 
 
 @Component({
@@ -10,6 +11,23 @@ import { User } from 'src/app/model/signUp.model';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  
+  email = new FormGroup({
+    email: new FormControl('',[
+      Validators.required,
+      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    });
+    get primEmail(){
+      return this.email.get('email')
+      }
+  //  loginForm = new FormGroup({
+   // email: new FormControl('',[Validators.required, Validators.email]),
+    //password: new FormControl('')
+  //})  
+  
+  //get email(){return this.loginForm.get('email')}
+  
+  
   objUser:User = new User();
   
   constructor(){}
@@ -19,5 +37,5 @@ export class SignUpComponent implements OnInit {
       alert(" Record added");
     }
   }
-
+   
 

@@ -20,23 +20,32 @@
 				User name must be at least 2 characters long!
 			  </small>
 		  </div> 
-		  <input type="text" name="email" placeholder="Email" class="form-control" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel />
-		  <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+		  <input type="email" name="email" placeholder="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel />
+		  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
 			<p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
-		      Email is required!
+				Email is Required
 			</p>
+			<div [hidden]="!email.errors?.['pattern']" [ngClass]="'text-danger'">
+				Email is invalid!
+			</div>
 		  </div>
+		  
 		  <input type="password" name="pass" placeholder="Password" class="form-control" required [(ngModel)]="objUser.password" #password="ngModel"  ngModel/>
 		  <div *ngIf="password.invalid && (password.dirty || email.touched)" >
 			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
 		      Password is required!
 			</p>
 		  </div>
-		  <input type="password" name="cpass" placeholder="Confirm Password"class="form-control" required required Regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
+		  <input type="password" name="cpass" placeholder="Confirm Password" pattern="{{ password.value }}" class="form-control" required [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
 		  <div *ngIf="passwordAgain.invalid && (password.dirty || email.touched)" >
 			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
 		      Password is required!
 			</p>
+			<!--<div [hidden]="!passwordAgain.errors.['pattern']" [ngClass]="'text-danger'">
+				Password does not match
+			</div>-->
+
+			
 		  </div>
 		  <button type="button" id="btnSubmit" name="btnSubmit" class="btn btn-ptimary"(click)="btnSubmit_click()" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>
