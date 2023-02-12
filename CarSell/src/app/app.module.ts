@@ -21,10 +21,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
-    FormsModule, 
-    ReactiveFormsModule
-
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
