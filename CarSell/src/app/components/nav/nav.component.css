@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #27AE60;
+    background-color: #173c51;
 
 }
 header{
@@ -19,8 +19,9 @@ header{
 #navbarUl li a{
     transition:  all 0.3s ease 0s;
     color: white;
+    text-decoration: none;
 }
 #navbarUl li a:hover{
-    color: #D5CE58;
+    color: red;
 }
 
