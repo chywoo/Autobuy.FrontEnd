@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import {User, Result} from "../model/RESTAPI.model";
+import {UserIF, Result} from "../model/RESTAPI.model";
 
 
 const USERAPI = "/api/users";
@@ -18,7 +18,7 @@ export class UsersService {
    * Create User object
    * @param user
    */
-  public createUser(user: User): Observable<Result> {
+  public createUser(user: UserIF): Observable<Result> {
     return this.http.post<Result>(USERAPI, user);
   }
 }

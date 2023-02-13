@@ -1,8 +1,9 @@
 export interface Result {
-  Result: string
+  result: string,
+  message: string
 };
 
-export interface User {
+export interface UserIF {
   userId: string,
   userName: string,
   email: string,
