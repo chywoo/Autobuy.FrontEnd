@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import{FormsModule , ReactiveFormsModule} from'@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule , ReactiveFormsModule} from'@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,16 +19,15 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
     NavComponent,
     SignUpComponent,
     DialogBoxComponent
-   
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
-    FormsModule, 
+    AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-  
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
