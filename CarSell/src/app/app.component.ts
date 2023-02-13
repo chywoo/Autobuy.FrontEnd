@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup,FormControl, Validator } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CarSell';
+ 
+  
 }
