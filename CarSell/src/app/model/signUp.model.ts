@@ -1,4 +1,4 @@
-export class UserRegistration {
+export class User {
     name : any = null;
     username : any = null;
     email : any = null;
