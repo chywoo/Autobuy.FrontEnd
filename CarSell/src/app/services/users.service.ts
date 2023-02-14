@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import {UserIF, Result} from "../interfaces/restapi.interface";
 
 
-const USERAPI = "/api/users";
+const USERAPI = "/api/latest/users";
 
 @Injectable({
   providedIn: 'root'
