@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import {UserIF, Result} from "../interfaces/RESTAPI.model";
+import {UserIF, Result} from "../interfaces/restapi.interface";
 
 
 const USERAPI = "/api/users";
