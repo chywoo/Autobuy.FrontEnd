@@ -1,6 +1,6 @@
 import { Component ,OnInit } from '@angular/core';
 import { User } from 'src/app/model/signUp.model';
-import {Result, UserIF} from '../../model/RESTAPI.model';
+import {Result, UserIF} from '../../interfaces/RESTAPI.model';
 import { Router } from '@angular/router';
 import {UsersService} from "../../services/users.service";
 
