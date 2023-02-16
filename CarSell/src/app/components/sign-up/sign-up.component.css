@@ -8,7 +8,7 @@
 body {
 
   font-family: montserrat, arial, verdana;
-  background:linear-gradient(#8360c3, #2ebf91);
+ /* background:linear-gradient(#8360c3, #2ebf91);*/
 }
 /*form styles*/
 #msform {
@@ -51,7 +51,7 @@ body {
 /*buttons*/
 #btnSubmit {
   width: 100px;
-  background: #27AE60;
+  background: rgb(45, 59, 211);
   font-weight: bold;
   color: white;
   border: 0 none;

@@ -43,7 +43,7 @@
 			</p>
 			<div [hidden]="!passwordAgain.errors?.['pattern']" [ngClass]="'text-danger'"> Password does not match.</div>
 		  </div>
-		  <button type="button" id="btnSubmit" name="btnSubmit" class="btn btn-ptimary"(click)="goToPage('registationConfirmation')" [disabled]="!userForm.valid">Submit</button>
+		  <button type="button" id="btnSubmit" class="btn btn-primary btn-lg" name="btnSubmit"(click)="goToPage('registationConfirmation')" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>
 	  </form>
 	 <div class="card-footer">
