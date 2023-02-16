@@ -9,3 +9,8 @@ export interface UserIF {
   email: string,
   password: string
 };
+
+export interface LoginIF {
+  userName: string,
+  password: string
+}
