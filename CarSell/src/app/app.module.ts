@@ -9,6 +9,11 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
+
+
 
 
 
@@ -18,8 +23,9 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
     HomeComponent,
     NavComponent,
     SignUpComponent,
-    DialogBoxComponent
-
+    DialogBoxComponent,
+    LoginComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,8 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
