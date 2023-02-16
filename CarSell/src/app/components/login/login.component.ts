@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginModel} from 'src/app/model/loginModel.model';
+import {Component, OnInit} from '@angular/core';
+import {LoginModel} from 'src/app/model/loginModel.model';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +7,12 @@ import { LoginModel} from 'src/app/model/loginModel.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-objLoginModel: LoginModel = new LoginModel();
-ngOnInit(): void{}
-btnLogin(){
-  alert("Form valid");
-}
+  objLoginModel: LoginModel = new LoginModel();
+
+  ngOnInit(): void {
+  }
+
+  btnLogin() {
+    alert("Form valid");
+  }
 }
