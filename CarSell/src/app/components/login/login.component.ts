@@ -26,9 +26,11 @@ export class LoginComponent implements OnInit {
       if (result.result == "OK") {
         console.debug("Login OK");
         // #TODO: Navigate to success page
+        alert("Login OK");
       } else {
         console.error(result.message);
         // #TODO: Show error message
+        alert("Login failed: " + result.message)
       }
     });
   }
