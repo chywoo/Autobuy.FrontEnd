@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
 
   public goToPage(pageName:string):void {
     let user : UserIF = {
-      userId: this.objUser.name,
+      fullName: this.objUser.name,
       userName: this.objUser.username,
       email: this.objUser.email,
       password: this.objUser.password

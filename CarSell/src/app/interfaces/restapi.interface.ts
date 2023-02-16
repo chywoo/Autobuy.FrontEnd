@@ -4,7 +4,7 @@ export interface Result {
 };
 
 export interface UserIF {
-  userId: string,
+  fullName: string,
   userName: string,
   email: string,
   password: string
