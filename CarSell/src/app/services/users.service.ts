@@ -20,4 +20,7 @@ export class UsersService {
   public createUser(user: UserIF): Observable<Result> {
     return this.http.post<Result>(USERAPI, user);
   }
+  public getUserList(): Observable<Result> {
+    return this.http.get<Result>(USERAPI);
+  }
 }

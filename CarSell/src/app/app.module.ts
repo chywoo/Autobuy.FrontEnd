@@ -12,9 +12,9 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { LoginComponent } from './login/login.component';
 import { LoginComponent } from './components/login/login.component';
-
-
-
+import { UserManagementComponent } from './components/user-management/user-management.component';
+import {MatTableModule} from '@angular/material/table';
+ 
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { LoginComponent } from './components/login/login.component';
     NavComponent,
     SignUpComponent,
     DialogBoxComponent,
-    LoginComponent
+    LoginComponent,
+    UserManagementComponent
   
   ],
   imports: [
@@ -34,7 +35,8 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     MatDialogModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

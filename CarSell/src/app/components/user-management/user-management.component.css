@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+  main{
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1248px;
+  }
+  button{
+    margin: 4px;
+  }
+  h1 {
+    font-size: 50px;
+     font-weight: 600;
+     padding: 20px;
+  
+     color: red;
+     background-clip: text;
+     -webkit-background-clip: text;
+   }
