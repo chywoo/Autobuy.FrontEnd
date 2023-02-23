@@ -1,16 +1,15 @@
 import { Component,OnInit } from '@angular/core';
 
-
-export interface PeriodicElement {
+export interface Element {
   name: string;
   email:string;
   username:string
   position: number;
  
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'maria', email:'maria', username:'maria@gamil.com'},
-  {position: 2, name: 'sumin',  email:'sumin@123' ,username:'sumin@gmail.com'},
+const ELEMENT_DATA: Element[] = [
+  {position: 1, name: 'maria', email:'maria@123', username:'maria@gmail.com'},
+  {position: 2, name: 'sumin',  email:'sumin@123' ,username:'sumin@gmail.com'}
   
 ];
 
@@ -21,6 +20,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class UserManagementComponent  implements OnInit{
   
+
   displayedColumns: string[] = ['position', 'name','email','username','action'];
   dataSource = ELEMENT_DATA;
 

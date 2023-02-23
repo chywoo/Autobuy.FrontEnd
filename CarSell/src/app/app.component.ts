@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl, Validator } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { UsersService } from './services/users.service';
 
 

@@ -12,9 +12,12 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { LoginComponent } from './login/login.component';
 import { LoginComponent } from './components/login/login.component';
+import { MatTableModule } from '@angular/material/table'  
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import {CdkTableModule} from '@angular/cdk/table';
 import { UserManagementComponent } from './components/user-management/user-management.component';
-import {MatTableModule} from '@angular/material/table';
- 
+import { PostManagementComponent } from './components/post-management/post-management.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import {MatTableModule} from '@angular/material/table';
     SignUpComponent,
     DialogBoxComponent,
     LoginComponent,
-    UserManagementComponent
+    EditUserComponent,
+    DeleteUserComponent,
+    UserManagementComponent,
+    PostManagementComponent
   
   ],
   imports: [
@@ -36,9 +42,14 @@ import {MatTableModule} from '@angular/material/table';
     MatDialogModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    CdkTableModule,
+    
+   
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[ MatTableModule ]
 })
 export class AppModule { }
