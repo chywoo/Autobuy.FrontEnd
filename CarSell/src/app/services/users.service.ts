@@ -20,7 +20,34 @@ export class UsersService {
   public createUser(user: UserIF): Observable<Result> {
     return this.http.post<Result>(USERAPI, user);
   }
-  public getUserList(): Observable<Result> {
-    return this.http.get<Result>(USERAPI);
+
+  /**
+   * Get User List
+   */
+  public getUserList(): Observable<UserIF[]> {
+    return this.http.get<UserIF[]>(USERAPI);
+  }
+
+  /**
+   * Get User by Id
+   * @param userName
+   */
+  public getUserById(userName: string): Observable<Result> {
+    return this.http.get<Result>(USERAPI + "/" + userName);
+  }
+
+  /**
+   * Update User
+   */
+  public updateUser(userName: string, user: UserIF): Observable<Result> {
+    return this.http.put<Result>(USERAPI+ "/" + userName, user);
+  }
+
+
+  /**
+   * Delete User
+   */
+  public deleteUser(userName: string): Observable<Result> {
+    return this.http.delete<Result>(USERAPI + "/" + userName);
   }
 }
