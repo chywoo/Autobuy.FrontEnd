@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {UsersService} from "../../services/users.service";
+import { User } from 'src/app/model/signUp.model';
+import { Router } from '@angular/router';
 
 export interface Element {
   name: string;
@@ -17,9 +19,9 @@ export interface Element {
 export class UserManagementComponent  implements OnInit{
   displayedColumns: string[] = ['position', 'name','email','username','action'];
   dataSource:Element[] = [] // ELEMENT_DATA;
+  objUser:User = new User();
+  constructor(private router:Router,private userService: UsersService) {  }
 
-  constructor(private userService: UsersService) {
-  }
 
   ngOnInit(): void {
     this.userService.getUserList().subscribe((data)=>{
@@ -31,14 +33,9 @@ export class UserManagementComponent  implements OnInit{
         this.dataSource.push(item);
       }
     });
+    this.router.navigate((['/editUser',this.objUser.username]));
   }
-
-  btnEdit(){
-    alert("edit OK");
-  }
-  btnDelete(){
-    alert("delete OK");
-  }
+ 
 }
 
 

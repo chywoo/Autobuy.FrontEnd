@@ -21,7 +21,7 @@ const routes: Routes = [
   {path:"registationConfirmation",component:DialogBoxComponent},
   {path:"login",component:LoginComponent},
   {path:"userManagement",component:UserManagementComponent},
-  {path:"editUser", component:EditUserComponent},
+  {path:"editUser/:username", component:EditUserComponent},
   {path:"deleteUser",component:DeleteUserComponent},
   {path:"posts",component:PostManagementComponent},
   {path:"deletePost", component:DeletePostComponent},
