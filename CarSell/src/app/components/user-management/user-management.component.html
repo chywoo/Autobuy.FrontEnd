@@ -30,9 +30,8 @@
     <th mat-header-cell *matHeaderCellDef> Action</th>
     <td mat-cell *matCellDef="let element"> 
       <a [routerLink]="['/editUser',element.username]">EditUser</a>
-      <button class="btn btn-primary" style="padding-left: 0.2rem; padding-right: 0.2rem;" >      
-        Delete  
-     </button>
+      <a [routerLink]="['/deleteUser',element.username]">DeleteUser</a>
+    
     </td>
   </ng-container>
  
