@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from 'src/app/model/signUp.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from "../../services/users.service";
 import {UserIF} from "../../interfaces/restapi.interface";
 
@@ -15,11 +15,11 @@ export class EditUserComponent implements OnInit {
   userName: string | null = null;
   objUser: User = new User();
 
-  constructor(private route: ActivatedRoute, private userService: UsersService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UsersService) {
   }
 
   ngOnInit(): void {
-    this.userName = this.route.snapshot.paramMap.get('id');
+    this.userName = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (this.userName != null) {
       this.userService.getUserById(this.userName).subscribe((data: UserIF) => {
@@ -44,7 +44,11 @@ export class EditUserComponent implements OnInit {
     }
 
     this.userService.updateUser(this.objUser.username, user).subscribe((result  ) => {
-      console.log(result);
+      if (result.result == "OK" ) {
+        this.router.navigate(['/userManagement']);
+      } else {
+        alert("Update user failed.");
+      }
     });
   }
 }
