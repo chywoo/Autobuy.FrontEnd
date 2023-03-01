@@ -1,21 +1,38 @@
-<body>
-	<form id="msform"> 
-		<fieldset>
-		  <h2 class="fs-title">Create a post</h2>
-		  <input type="text" name="carMaker" placeholder="Car Make" class="form-control" />
-		  
-		  <input type="text" name="carModel" placeholder="Car Model" class="form-control"/>
-          
-          <input type="text" name="carPrice" placeholder="Car Price"class="form-control"/>	
+<div class="testbox">
+      <form>
+       <h1>Add New Post</h1>
+       <h5>Please input Car's Information</h5>
+       <div class="item">
+         <div class="name-item">
+         <!-- <input type="text" id="txtMake" name="txtMake" placeholder="Make" class="form-control" required minlength="4" ngModel [(ngModel)]="objPost.make" #make="ngModel" /> -->
+         <input type="text" name="txtMake" placeholder="Make" class="form-control" ngModel>
+         <input type="text" name="name" placeholder="Model" />
+         </div>
+       </div>
+           <div class="item">
+                 <div class="name-item">
+                   <input type="text" name="name" placeholder="Year" />
+                   <input type="text" name="name" placeholder="Color" />
+                 </div>
+             </div>
+       <h5>Details about the Car</h5>
+       <div class="item">
+         <p>Description</p>
+         <textarea rows="5"></textarea>
+       </div>
+           <h5>Please input your Information</h5>
+       <div class="item">
+         <div class="name-item">
+           <input type="text" name="name" placeholder="User Name" />
+           <input type="text" name="name" placeholder="Email" />
+         </div>
+       </div>
+       <div class="btn-block">
+         <button type="submit" href="/">Submit</button>
+       </div> 
+     </form>
+   </div>
 
-          <input type="text" name="postAuthor" placeholder="Post Author" class="form-control"/>
-		  		  
-		  <button type="button" class="btn btn-primary btn-lg"
-		  style="padding-left: 5.5rem; padding-right: 5.5rem;"(click)="btnSubmitWorks()">Submit</button>
-
-          <button type="button" class="btn btn-danger btn-lg"
-		  style="padding-left: 5.5rem; padding-right: 5.5rem;"routerLink="/posts" > Cancel </button>
-		</fieldset>
-	  </form> 
-</body>
+   
+   
 

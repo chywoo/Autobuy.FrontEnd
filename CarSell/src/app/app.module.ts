@@ -10,7 +10,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { LoginComponent } from './login/login.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatTableModule } from '@angular/material/table'  
 import { EditUserComponent } from './components/edit-user/edit-user.component';
@@ -18,6 +17,8 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import {CdkTableModule} from '@angular/cdk/table';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { PostManagementComponent } from './components/post-management/post-management.component';
+
+
 
 
 @NgModule({
@@ -43,13 +44,10 @@ import { PostManagementComponent } from './components/post-management/post-manag
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    CdkTableModule,
-    
-   
-    
+    CdkTableModule   
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[ MatTableModule ]
+  exports:[ MatTableModule]
 })
 export class AppModule { }

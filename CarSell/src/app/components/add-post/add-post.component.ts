@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/model/post.model';
 
 @Component({
   selector: 'app-add-post',
@@ -7,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPostComponent implements OnInit{
 
+  objPost:Post = new Post();
+
   ngOnInit(): void {
   }
  
-  btnSubmitWorks(){
-    alert("submit works");
-  }
 }
