@@ -1,18 +1,18 @@
 <body>
-	<form id="msform" #userForm="ngForm" > 
-		<fieldset>
-		  <h2 class="fs-title">Edit user account</h2>
-		  <input type="text" name="name" placeholder="Full Name" class="form-control" />
-		  
-		  <input type="email" name="email" placeholder="Email" class="form-control"/>
-          
-          <input type="text" name="username" placeholder="User Name"class="form-control"/>	
-		  		  
-		  <button type="button" class="btn btn-primary btn-lg"
-		  style="padding-left: 5.5rem; padding-right: 5.5rem;"(click)="btnSubmitWorks()">Submit</button>
+<form id="msform" #userForm="ngForm">
+  <fieldset>
+    <h2 class="fs-title">Edit user account</h2>
+    <input type="text" name="name" placeholder="Full Name" class="form-control" value="{{objUser.name}}"/>
+    <input type="email" name="email" placeholder="Email" class="form-control" value="{{objUser.email}}"/>
+    <input type="text" name="username" placeholder="User Name" class="form-control" value="{{objUser.username}}"/>
 
-          <button type="button" class="btn btn-danger btn-lg"
-		  style="padding-left: 5.5rem; padding-right: 5.5rem;"routerLink="/userManagement" > Cancel </button>
-		</fieldset>
-	  </form> 
+    <button type="button" class="btn btn-primary btn-lg"
+            style="padding-left: 5.5rem; padding-right: 5.5rem;" (click)="btnSubmitWorks()">Submit
+    </button>
+
+    <button type="button" class="btn btn-danger btn-lg"
+            style="padding-left: 5.5rem; padding-right: 5.5rem;" routerLink="/userManagement"> Cancel
+    </button>
+  </fieldset>
+</form>
 </body>

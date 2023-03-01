@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/signUp.model';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {User} from 'src/app/model/signUp.model';
+import {ActivatedRoute} from '@angular/router';
 import {UsersService} from "../../services/users.service";
-import { Subscription } from 'rxjs/internal/Subscription';
+import {UserIF} from "../../interfaces/restapi.interface";
 
 
 @Component({
@@ -13,25 +12,29 @@ import { Subscription } from 'rxjs/internal/Subscription';
 })
 
 export class EditUserComponent implements OnInit {
-  
-  objUser:User = new User();
-  
-  constructor(private route: ActivatedRoute) {  }
-  
-  ngOnInit(): void {
-   
-  // let username:string = this.router.snapshot.paramMap.get('username');
-  //  const x = this.userService.getUserById(username).subscribe(ex=>this.objUser.username = username); 
-  
-  const id = this.route.snapshot.paramMap.get('id');
-  console.log(id);
+
+  objUser: User = new User();
+
+  constructor(private route: ActivatedRoute, private userService: UsersService) {
   }
 
-  btnSubmitWorks(){
+  ngOnInit(): void {
+    let userName: string | null = this.route.snapshot.paramMap.get('id');
+
+    if (userName != null) {
+      this.userService.getUserById(userName).subscribe((data: UserIF) => {
+        console.info(data);
+        this.objUser.username = data.userName;
+        this.objUser.name = data.fullName;
+        this.objUser.email = data.email;
+        this.objUser.password = data.password;
+      });
+    } else {
+      console.error("Wrong user name.");
+    }
+  }
+
+  btnSubmitWorks() {
     alert(`{id}`);
   }
-  
-
-
-
 }
