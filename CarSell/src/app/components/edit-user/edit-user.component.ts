@@ -12,17 +12,17 @@ import {UserIF} from "../../interfaces/restapi.interface";
 })
 
 export class EditUserComponent implements OnInit {
-
+  userName: string | null = null;
   objUser: User = new User();
 
   constructor(private route: ActivatedRoute, private userService: UsersService) {
   }
 
   ngOnInit(): void {
-    let userName: string | null = this.route.snapshot.paramMap.get('id');
+    this.userName = this.route.snapshot.paramMap.get('id');
 
-    if (userName != null) {
-      this.userService.getUserById(userName).subscribe((data: UserIF) => {
+    if (this.userName != null) {
+      this.userService.getUserById(this.userName).subscribe((data: UserIF) => {
         console.info(data);
         this.objUser.username = data.userName;
         this.objUser.name = data.fullName;
@@ -35,6 +35,16 @@ export class EditUserComponent implements OnInit {
   }
 
   btnSubmitWorks() {
-    alert(`{id}`);
+    // alert(`{id}`);
+    let user: UserIF = {
+      userName: this.objUser.username,
+      fullName: this.objUser.name,
+      email: this.objUser.email,
+      password: this.objUser.password
+    }
+
+    this.userService.updateUser(this.objUser.username, user).subscribe((result  ) => {
+      console.log(result);
+    });
   }
 }
