@@ -32,8 +32,8 @@ export class UsersService {
    * Get User by Id
    * @param userName
    */
-  public getUserById(userName: string): Observable<Result> {
-    return this.http.get<Result>(USERAPI + "/" + userName);
+  public getUserById(userName: string): Observable<UserIF> {
+    return this.http.get<UserIF>(USERAPI + "/" + userName);
   }
 
   /**
