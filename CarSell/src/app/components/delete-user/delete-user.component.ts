@@ -33,6 +33,13 @@ export class DeleteUserComponent implements OnInit {
   }
 
   btnSubmitWorks() {
-
+    // alert(`{id}`);
+    this.userService.deleteUser(this.objUser.username).subscribe((result  ) => {
+      if (result.result == "OK" ) {
+        this.router.navigate(['/userManagement']);
+      } else {
+        alert("Delete user failed.");
+      }
+    });
   }
 }
