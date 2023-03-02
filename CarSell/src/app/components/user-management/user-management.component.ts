@@ -33,10 +33,8 @@ export class UserManagementComponent  implements OnInit{
         this.dataSource.push(item);
       }
     });
-    this.router.navigate((['/editUser',this.objUser.username]));
-    this.router.navigate((['/deleteUser',this.objUser.username]));
   }
- 
+
 }
 
 
