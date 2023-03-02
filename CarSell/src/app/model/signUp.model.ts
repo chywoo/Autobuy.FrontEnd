@@ -4,6 +4,7 @@ export class User {
     email : any = null;
     password : any = null;
     passwordAgain : any = null;
+    //rolle
 
     constructor( name?:string ,userName?: string, email?:string, password?:string,passwordAgain?:string){
         this.name = name;

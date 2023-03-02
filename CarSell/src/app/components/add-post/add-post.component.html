@@ -1,38 +1,98 @@
 <div class="testbox">
-      <form>
-       <h1>Add New Post</h1>
-       <h5>Please input Car's Information</h5>
-       <div class="item">
-         <div class="name-item">
-         <!-- <input type="text" id="txtMake" name="txtMake" placeholder="Make" class="form-control" required minlength="4" ngModel [(ngModel)]="objPost.make" #make="ngModel" /> -->
-         <input type="text" name="txtMake" placeholder="Make" class="form-control" ngModel>
-         <input type="text" name="name" placeholder="Model" />
-         </div>
+<form id="msform" #postForm="ngForm">
+     <h1>Add New Post</h1>
+     <h5>Please input Car's Information</h5>
+     
+     <!--Car make and model-->
+     <div class="item">
+       <div class="name-item">
+       <input type="text" id="make" name="make" placeholder="Make" class="form-control" required  ngModel [(ngModel)]="objPost.make" #make="ngModel" />
+       <input type="text" id="model" name="model" placeholder="Model" class="form-control" required  ngModel [(ngModel)]="objPost.model" #model="ngModel"  />      
+    </div>
+      
+    <!--Car year color-->
+    <div class="item">
+        <div class="name-item">
+          <input type="text" id="year" name="year" placeholder="Year" class="form-control" required  ngModel [(ngModel)]="objPost.year" #year="ngModel" />
+           <input type="text" id="color" name="color" placeholder="Color" class="form-control" required  ngModel [(ngModel)]="objPost.color" #color="ngModel"  />  
+        </div>
+    </div>
+    <!--mileage(km) and Car condition -->
+    <div class="item">
+      <div class="name-item">
+        <input type="number" id="mileage" name="year" placeholder="mileage(km)" class="form-control" required  ngModel [(ngModel)]="objPost.mileage" #mileage="ngModel" />       
+      </div>
+
+      <label>Condition</label>  
+         <select id="condition" name="condition" class="form-control" ngModel [(ngModel)]="objPost.condition" #condition="ngModel" >
+           <option value="excellent">1: EXCELLENT</option>
+           <option value="fine"> 2: FINE</option>
+           <option value="verygood"> 3: VERY GOOD</option>
+           <option value="good"> 4: GOOD</option>
+           <option value="restorable"> 5: RESTORABLE</option>       
+         </select>
        </div>
-           <div class="item">
-                 <div class="name-item">
-                   <input type="text" name="name" placeholder="Year" />
-                   <input type="text" name="name" placeholder="Color" />
-                 </div>
-             </div>
-       <h5>Details about the Car</h5>
-       <div class="item">
-         <p>Description</p>
-         <textarea rows="5"></textarea>
-       </div>
-           <h5>Please input your Information</h5>
-       <div class="item">
-         <div class="name-item">
-           <input type="text" name="name" placeholder="User Name" />
-           <input type="text" name="name" placeholder="Email" />
-         </div>
-       </div>
-       <div class="btn-block">
-         <button type="submit" href="/">Submit</button>
-       </div> 
-     </form>
+
+    <!--Car details-->
+    <h5>More details about the Car</h5>
+    <div class="item" >
+      <p>Description</p>
+      <textarea rows="5" id="description" name="description" class="form-control" ngModel [(ngModel)]="objPost.description" #description="ngModel"></textarea> 
+   </div>
+   <!--Seller information-->
+   <h5>Please input your Information</h5>
+   <div class="item">
+     <div class="name-item">
+       <input type="text" name="username" id="username" placeholder="User Name" class="form-control" required  ngModel [(ngModel)]="objPost.username" #username="ngModel" />
+       <input type="email" name="email" id="email" placeholder="Email" class="form-control" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  ngModel [(ngModel)]="objPost.email" #email="ngModel"  />   
+      </div>
    </div>
 
-   
-   
+<!--Erros-->
+   <div *ngIf="make.invalid &&(make.dirty||make.touched)"class="alert">		
+      <p *ngIf="make.errors?.['required']" [ngClass]="'text-danger'" >
+           Make is required!
+        </p>         
+    </div> 
+    <div *ngIf="model.invalid &&(model.dirty||model.touched)"class="alert">		
+      <p *ngIf="model.errors?.['required']" [ngClass]="'text-danger'" >
+           Model is required!
+        </p>         
+    </div> 
+    <div *ngIf="year.invalid &&(year.dirty||year.touched)"class="alert">		
+      <p *ngIf="year.errors?.['required']" [ngClass]="'text-danger'" >
+           Year is required!
+        </p>         
+    </div> 
+    <div *ngIf="color.invalid &&(color.dirty||color.touched)"class="alert">		
+      <p *ngIf="color.errors?.['required']" [ngClass]="'text-danger'" >
+           Color is required!
+        </p>         
+    </div> 
+    <div *ngIf="mileage.invalid &&(mileage.dirty||mileage.touched)"class="alert">		
+      <p *ngIf="year.errors?.['required']" [ngClass]="'text-danger'" >
+       Mileage(km)  is required!
+        </p>         
+    </div>
+    <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">		
+      <p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
+           User Name is required!
+        </p>         
+    </div> 
+    <div *ngIf="email.invalid &&(email.dirty||email.touched)"class="alert">		
+      <p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
+           Email is required!
+        </p>         
+    </div>
+    <div [hidden]="!email.errors?.['pattern']" [ngClass]="'text-danger'">
+				Email is invalid!
+			</div>
 
+   <!--Button-->
+   <div class="btn-block">
+     <button type="submit"  (click)="goToPage('mypost')"[disabled]="!postForm.valid">Submit</button>
+   </div>  
+     </div>
+         
+   </form>
+</div>

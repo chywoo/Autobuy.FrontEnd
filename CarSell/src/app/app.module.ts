@@ -17,6 +17,8 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import {CdkTableModule} from '@angular/cdk/table';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { PostManagementComponent } from './components/post-management/post-management.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { MypostComponent } from './components/mypost/mypost.component';
 
 
 
@@ -32,7 +34,9 @@ import { PostManagementComponent } from './components/post-management/post-manag
     EditUserComponent,
     DeleteUserComponent,
     UserManagementComponent,
-    PostManagementComponent
+    PostManagementComponent,
+    AddPostComponent,
+    MypostComponent
   
   ],
   imports: [
@@ -48,6 +52,6 @@ import { PostManagementComponent } from './components/post-management/post-manag
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[ MatTableModule]
+  exports:[ MatTableModule, FormsModule, ReactiveFormsModule]
 })
 export class AppModule { }

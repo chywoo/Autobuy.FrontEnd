@@ -12,7 +12,7 @@ import { PostManagementComponent } from './components/post-management/post-manag
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { DeletePostComponent } from './components/delete-post/delete-post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
-
+import { MypostComponent } from './components/mypost/mypost.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -26,11 +26,12 @@ const routes: Routes = [
   {path:"posts",component:PostManagementComponent},
   {path:"deletePost", component:DeletePostComponent},
   {path:"editPost", component:EditPostComponent},
-  {path:"addPost", component:AddPostComponent}
+  {path:"addPost", component:AddPostComponent},
+  {path:"mypost" , component:MypostComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule, ]
 })
 export class AppRoutingModule { }
