@@ -20,4 +20,20 @@ export class AuthService {
     let LOGINAPI = AUTHAPI + "/login";
     return this.http.post<Result>(LOGINAPI, user);
   }
+
+  /**
+   * Call logout
+   */
+  public logout(): Observable<Result> {
+    let LOGOUTAPI = AUTHAPI + "/logout";
+    return this.http.get<Result>(LOGOUTAPI);
+  }
+
+  /**
+   * Check if user is logged in
+   */
+  public isLoggedIn(): Observable<Result> {
+    let ISLOGGEDINAPI = AUTHAPI;
+    return this.http.get<Result>(ISLOGGEDINAPI);
+  }
 }
