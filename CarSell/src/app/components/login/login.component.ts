@@ -14,6 +14,11 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
+    this.auth.isLoggedIn().subscribe((result: Result) => {
+      if (result.result == "OK") {
+        alert("Already logged in");
+      }
+    });
   }
 
   btnLogin() {
