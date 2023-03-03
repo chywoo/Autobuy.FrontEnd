@@ -1,6 +1,6 @@
 header{
-    background-color: black;
-    padding:20px;
+    background-color: #173c51;
+    padding:30px;
 }
 
 #title{
@@ -14,10 +14,10 @@ color: white;
 text-align: center; 
 }
 #readMore{
-    background-color: red;
+    background-color: green;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 8px;
     width: 200px;
     height: 40px; 
     margin: auto;
