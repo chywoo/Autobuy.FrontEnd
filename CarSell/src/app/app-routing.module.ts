@@ -24,8 +24,8 @@ const routes: Routes = [
   {path:"editUser/:id", component:EditUserComponent},
   {path:"deleteUser/:id",component:DeleteUserComponent},
   {path:"posts",component:PostManagementComponent},
-  {path:"deletePost", component:DeletePostComponent},
-  {path:"editPost", component:EditPostComponent},
+  {path:"deletePost/:id", component:DeletePostComponent},
+  {path:"editPost/:id", component:EditPostComponent},
   {path:"addPost", component:AddPostComponent},
   {path:"mypost" , component:MypostComponent}
 ];

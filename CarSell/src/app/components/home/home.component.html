@@ -4,6 +4,75 @@
         <h1 id ="subTitle">We have more than a thousand of cars for you to choose!</h1>
         <p id="readMore">READ MORE</p>   
     </header>
+    <main>
+      <ul class="nav justify-content-center" id="navbarUl">
+           <li> 
+                  <mat-form-field>
+                      <mat-label>Favorite food</mat-label>
+                      <mat-select>
+                        <mat-option *ngFor="let brand of brands" [value]="brand.value">
+                          {{brand.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>      
+            </li>
+           <li>
+                <mat-form-field>
+                    <mat-label>Favorite food</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let brand of brands" [value]="brand.value">
+                        {{brand.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>      
+      </li>
+      <li>
+        <mat-form-field>
+            <mat-label>Favorite food</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let brand of brands" [value]="brand.value">
+                {{brand.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>      
+    </li>
+  </ul> 
+  <ul class="nav justify-content-center" id="navbarUl">
+    <li>
+      <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let brand of brands" [value]="brand.value">
+              {{brand.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>      
+  </li>
+  <li>
+    <mat-form-field id="size">
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let brand of brands" [value]="brand.value">
+            {{brand.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>      
+</li>
+<li>
+  <mat-form-field id="size">
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let brand of brands" [value]="brand.value">
+          {{brand.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>      
+</li>
+<li id="search">
+  <a id="link">SEARCH THE VEHICLE</a>    
+</li>
+</ul>         
+    </main>
    
 </body> 
 

@@ -18,6 +18,11 @@ table {
   width: 300px;
   color: white;
   font-family: "montserrat",sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
-  background-color:  green ;}
- 
+  background-color:  green ;
+  border-radius: 10%;
+} 
+h1{
+  font-size: 30px;
+}

@@ -19,6 +19,8 @@ import { UserManagementComponent } from './components/user-management/user-manag
 import { PostManagementComponent } from './components/post-management/post-management.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { MypostComponent } from './components/mypost/mypost.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -36,7 +38,8 @@ import { MypostComponent } from './components/mypost/mypost.component';
     UserManagementComponent,
     PostManagementComponent,
     AddPostComponent,
-    MypostComponent
+    MypostComponent,
+    EditPostComponent
   
   ],
   imports: [
@@ -48,7 +51,8 @@ import { MypostComponent } from './components/mypost/mypost.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    CdkTableModule   
+    CdkTableModule,
+    MatSelectModule  
   ],
   providers: [],
   bootstrap: [AppComponent],

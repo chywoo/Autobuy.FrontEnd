@@ -6,10 +6,38 @@ table {
     margin: 0 auto;
     max-width: 1248px;
   }
-  button{
-    margin: 4px;
-  }
-button{
-    margin: 5px;
-    background-color: green ;
+  a{
+    text-decoration: none;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    height: 40px;
+    width: 300px;
+    color: white;
+    font-weight: bold;
+    font-family: "montserrat",sans-serif;
+    text-transform: uppercase;
+    background-color:  green ;
+    border-radius: 10%;}
+h1{
+  font-size: 30px;
 }
+nav{
+  padding: 10px;
+}
+    #navbarUl li{
+     
+      padding: 10px 550px 10px 10px;
+      list-style: none;
+     
+  }
+  #addPost{
+    background-color: #095484;
+    color: white ;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-left: 30px ;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }

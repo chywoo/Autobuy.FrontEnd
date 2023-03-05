@@ -1,3 +1,6 @@
+body{
+   background-color:  #173c51;
+}
 header{
     background-color: #173c51;
     padding:30px;
@@ -22,7 +25,29 @@ text-align: center;
     height: 40px; 
     margin: auto;
     text-align: center;
-    position: relative;
-    
+    position: relative;   
 }
-
+main{
+    text-align: center;
+    display: inline;
+}
+#navbarUl li{
+    display: inline;
+    padding: 0px 10px;
+}
+#size{
+    width:100px;
+}
+#search{
+    width: 220px;
+    height: 50px;
+    background-color: rgb(176, 18, 18);
+    margin-left: 10px;
+    color: white;
+    padding: 20px;
+   
+}
+#link{
+    padding: 20px;
+    text-decoration: none;  
+}

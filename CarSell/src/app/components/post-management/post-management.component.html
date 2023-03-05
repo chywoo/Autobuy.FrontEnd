@@ -1,9 +1,12 @@
-<h1>All Posts</h1> <button routerLink="/addPost">Add post</button>
+
 <main>
-
-
+  <nav>
+    <ul class="nav justify-content-left" id="navbarUl">
+      <li><h1>All Posts</h1></li>
+      <li><button id="addPost" routerLink="/addPost">Add post</button></li>
+    </ul>
+  </nav>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
   <!-- Position Column -->
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -39,12 +42,9 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action</th>
     <td mat-cell *matCellDef="let element"> 
-      <button class="btn btn-primary "style="padding-left: 0.2rem; padding-right: 0.2rem;" routerLink="/editPost">      
-          Edit 
-      </button>
-      <button class="btn btn-primary" style="padding-left: 0.2rem; padding-right: 0.2rem;" routerLink="/deletePost">      
-        Delete  
-     </button>
+
+      <a [routerLink]="['/editPost',element.post_author]">Edit </a>
+      <a [routerLink]="['/deletePost',element.post_author]">Delete </a> 
     </td>
   </ng-container>
  

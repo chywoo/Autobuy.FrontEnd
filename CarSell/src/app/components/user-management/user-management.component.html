@@ -1,7 +1,7 @@
-<h1>All Users</h1>
+
 <main>
 
-
+  <h1>All Users</h1>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- Position Column -->
@@ -29,9 +29,8 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action</th>
     <td mat-cell *matCellDef="let element"> 
-      <a [routerLink]="['/editUser',element.username]">EditUser</a>
-      <a [routerLink]="['/deleteUser',element.username]">DeleteUser</a>
-    
+      <a [routerLink]="['/editUser',element.username]">Edit</a>
+      <a [routerLink]="['/deleteUser',element.username]">Delete</a>  
     </td>
   </ng-container>
 
