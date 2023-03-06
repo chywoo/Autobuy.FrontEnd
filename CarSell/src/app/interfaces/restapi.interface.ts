@@ -42,5 +42,5 @@ export interface PostIF {
   userName: string,
   carID: number,
   author: UserIF,  // This field is used in the GET method
-  carInfo: CarIF   // This field is used in the GET method
+  car: CarIF   // This field is used in the GET method
 }
