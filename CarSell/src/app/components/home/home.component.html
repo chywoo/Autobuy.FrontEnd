@@ -5,74 +5,18 @@
         <p id="readMore">READ MORE</p>   
     </header>
     <main>
-      <ul class="nav justify-content-center" id="navbarUl">
-           <li> 
-                  <mat-form-field>
-                      <mat-label>Favorite food</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let brand of brands" [value]="brand.value">
-                          {{brand.viewValue}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>      
-            </li>
-           <li>
-                <mat-form-field>
-                    <mat-label>Favorite food</mat-label>
-                    <mat-select>
-                      <mat-option *ngFor="let brand of brands" [value]="brand.value">
-                        {{brand.viewValue}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>      
-      </li>
-      <li>
-        <mat-form-field>
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let brand of brands" [value]="brand.value">
-                {{brand.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>      
-    </li>
-  </ul> 
-  <ul class="nav justify-content-center" id="navbarUl">
-    <li>
-      <mat-form-field>
-          <mat-label>Favorite food</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let brand of brands" [value]="brand.value">
-              {{brand.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>      
-  </li>
-  <li>
-    <mat-form-field id="size">
-        <mat-label>Favorite food</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let brand of brands" [value]="brand.value">
-            {{brand.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>      
-</li>
-<li>
-  <mat-form-field id="size">
-      <mat-label>Favorite food</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let brand of brands" [value]="brand.value">
-          {{brand.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>      
-</li>
-<li id="search">
-  <a id="link">SEARCH THE VEHICLE</a>    
-</li>
-</ul>         
-    </main>
+<form #homeForm="ngForm" > 
+  <div class="col-md-3">
+    <label for="make" class="control-label" style="color: white;">Make</label>
+    <select class="form-control" id="make" name="make" class="form-control" required  [(ngModel)]="objHome.make" #make.value="ngModel" ngModel>
+      <option *ngFor="let make of makers" [value]="make.id">{{ make.name }}</option>
+    </select>
+  </div>
+</form>
+<div class="card-footer" style="color:white">
+  {{homeForm.value | json}}
+  </div>
+</main>
    
 </body> 
 
