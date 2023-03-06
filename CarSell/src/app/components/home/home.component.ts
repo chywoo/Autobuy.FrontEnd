@@ -4,6 +4,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { Make } from 'src/app/model/make.model';
 import { HttpClient } from '@angular/common/http';
 import { HomeSearch } from 'src/app/model/home.model';
+import {MakersService} from "../../services/makers.service";
 
 
 @Component({
@@ -12,17 +13,24 @@ import { HomeSearch } from 'src/app/model/home.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  
-  objHome:HomeSearch = new HomeSearch(); 
-  
+
+  objHome:HomeSearch = new HomeSearch();
+
   makers: Make[] = [];
 
-  constructor( private http: HttpClient, private homeService : HomeserviceService){}
+  constructor( private http: HttpClient, private homeService : HomeserviceService,
+               private makersService: MakersService){}
 
 ngOnInit(): void {
-this.homeService.getMaker().subscribe(data => {
-  this.makers = data;
-  console.log(data);
-})
-}
+  this.makersService.getMakerList().subscribe(data => {
+    this.makers = [];
+    for (let i = 0; i < data.length; i++) {
+      let maker = {
+        id: data[i].makerID,
+        name: data[i].makerName
+      }
+      this.makers.push(maker);
+    }
+  });
+  }
 }
