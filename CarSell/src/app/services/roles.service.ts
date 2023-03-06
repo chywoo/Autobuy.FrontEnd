@@ -8,7 +8,7 @@ const BASEAPI = "/api/v1/roles";
 @Injectable({
   providedIn: 'root'
 })
-export class RolessService {
+export class RolesService {
 
   constructor(private http:HttpClient) { }
 
