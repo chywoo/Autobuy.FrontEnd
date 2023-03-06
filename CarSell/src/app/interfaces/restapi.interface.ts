@@ -15,6 +15,11 @@ export interface Result {
   message: string
 }
 
+export interface RoleIF {
+  roleID: number,
+  roleName: string
+}
+
 export interface UserIF {
   fullName: string,
   userName: string,
