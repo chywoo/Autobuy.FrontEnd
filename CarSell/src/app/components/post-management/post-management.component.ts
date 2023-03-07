@@ -4,7 +4,7 @@ import {PostIF} from "../../interfaces/restapi.interface";
 
 
 export interface Element {
-
+  post_id: number
   car_make:string;
   car_model:string;
   car_price:string;
@@ -13,16 +13,7 @@ export interface Element {
   position: number;
 
 }
-const ELEMENT_DATA: Element[] = [
-  {position: 1,
-    car_make: 'Tesla',
-    car_model:'Model3',
-    car_price:'$30.000',
-    car_description:'Very new! First owner',
-    post_author:'Maria'}
-
-
-];
+const ELEMENT_DATA: Element[] = [];
 
 @Component({
   selector: 'app-post-management',
@@ -41,9 +32,8 @@ export class PostManagementComponent implements OnInit {
       this.dataSource = []
 
       for (let i = 0; i < data.length; i++) {
-        console.log(data[i]);
-
         let post:Element = {
+          post_id: data[i].postID,
           position: i+1,
           car_make: data[i].car.maker.makerName,
           car_model: data[i].car.carModel,
