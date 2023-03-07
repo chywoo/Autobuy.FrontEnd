@@ -39,6 +39,7 @@ export interface PostIF {
   description: string,
   year: number,
   mileage: number,
+  condition: string,
   price: number,
   userName: string,
   carID: number,
