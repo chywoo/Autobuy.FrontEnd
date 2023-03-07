@@ -46,7 +46,7 @@ export class PostManagementComponent implements OnInit {
         let post:Element = {
           position: i+1,
           car_make: data[i].car.maker.makerName,
-          car_model: data[i].car.carName,
+          car_model: data[i].car.carModel,
           car_price: data[i].price.toString(),
           car_description: data[i].description,
           post_author: data[i].author.fullName,
