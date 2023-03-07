@@ -2,6 +2,7 @@ export interface  CarIF {
   carID: number,
   carName: string,
   makerID: number,
+  imageURL: string,
   maker: MakerIF
 }
 
