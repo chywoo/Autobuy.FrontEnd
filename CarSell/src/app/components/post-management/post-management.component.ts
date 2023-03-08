@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostsService} from "../../services/posts.service";
-import {PostIF} from "../../interfaces/restapi.interface";
+import {PostDetailIF, PostIF} from "../../interfaces/restapi.interface";
 
 
 export interface Element {
@@ -28,7 +28,7 @@ export class PostManagementComponent implements OnInit {
   constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
-    this.postsService.getPostList().subscribe((data:PostIF[]) => {
+    this.postsService.getPostList().subscribe((data:PostDetailIF[]) => {
       this.dataSource = []
 
       for (let i = 0; i < data.length; i++) {
