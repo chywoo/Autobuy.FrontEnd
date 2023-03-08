@@ -28,6 +28,14 @@ export interface UserIF {
   password: string
 }
 
+export interface UserDetailIF {
+  fullName: string,
+  userName: string,
+  email: string,
+  password: string,
+  role: RoleIF
+}
+
 export interface LoginIF {
   userName: string,
   password: string
@@ -43,6 +51,18 @@ export interface PostIF {
   price: number,
   userName: string,
   carID: number,
+}
+
+export interface PostDetailIF {
+  postID: number,
+  title: string,
+  description: string,
+  year: number,
+  mileage: number,
+  condition: string,
+  price: number,
+  userName: string,
+  carID: number,
   author: UserIF,  // This field is used in the GET method
-  car: CarIF   // This field is used in the GET method
+  car: CarIF // This field is used in the GET method
 }

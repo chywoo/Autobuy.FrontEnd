@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import {UserIF, Result} from "../interfaces/restapi.interface";
+import {UserIF, Result, UserDetailIF} from "../interfaces/restapi.interface";
 
 
 const USERAPI = "/api/v1/users";
@@ -24,16 +24,16 @@ export class UsersService {
   /**
    * Get User List
    */
-  public getUserList(): Observable<UserIF[]> {
-    return this.http.get<UserIF[]>(USERAPI);
+  public getUserList(): Observable<UserDetailIF[]> {
+    return this.http.get<UserDetailIF[]>(USERAPI);
   }
 
   /**
    * Get User by Id
    * @param userName
    */
-  public getUserById(userName: string): Observable<UserIF> {
-    return this.http.get<UserIF>(USERAPI + "/" + userName);
+  public getUserById(userName: string): Observable<UserDetailIF> {
+    return this.http.get<UserDetailIF>(USERAPI + "/" + userName);
   }
 
   /**
