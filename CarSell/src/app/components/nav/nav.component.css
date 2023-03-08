@@ -29,6 +29,7 @@ header{
     padding: 5px 10px ;
 }
  */
+ @import url(https://fonts.googleapis.com/css?family=Audiowide);
 
  *{
     box-sizing: border-box;
@@ -61,8 +62,11 @@ header{
     padding: 5px 10px ;
 }
 p{
+    font-family: "Audiowide", sans-serif;
     padding: 20px;
     color: white;
     font-size: 50px;
+    background-color: #0a2231;
+    border-radius: 10px;
 }
 

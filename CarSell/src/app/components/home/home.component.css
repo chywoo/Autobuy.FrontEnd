@@ -1,5 +1,8 @@
+
+
 body{
    background-color:  #173c51;
+   padding: 50px;
 }
 header{
     background-color: #173c51;
@@ -11,6 +14,9 @@ color: white;
 text-align: center;
 font-size: 50px;
 font-weight: bold;
+padding: 20px;
+
+
 }
 #subTitle{
 color: white;
@@ -25,18 +31,27 @@ text-align: center;
     height: 40px; 
     margin: auto;
     text-align: center;
-    position: relative;   
+    position: relative;  
+    border-radius: 10px; 
+    border-color: white;
 }
 main{
     text-align: center;
-    display: inline;
 }
+form{
+    margin: auto;
+    text-align: center;
+    position: relative;
+    padding: 50px;
+    width: 1500px;
+    border: white ;
+    border-style: solid;
+}
+
 #navbarUl li{
-    display: inline;
+    text-align: center;
+    display: inline-block;
     padding: 0px 10px;
-}
-#size{
-    width:100px;
 }
 #search{
     width: 220px;
@@ -44,10 +59,13 @@ main{
     background-color: rgb(176, 18, 18);
     margin-left: 10px;
     color: white;
-    padding: 20px;
-   
+    padding: 20px; 
 }
-#link{
-    padding: 20px;
-    text-decoration: none;  
+button{
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    color: white;
 }
