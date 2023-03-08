@@ -12,16 +12,15 @@
 		</div>
 		  
 		<!--Car year color-->
-		<div class="item">
+		 <div class="item">
 			<div class="name-item">
 			  <input type="text" id="year" name="year" placeholder="Year" class="form-control" required  ngModel [(ngModel)]="objPost.year" #year="ngModel" />
-			   <input type="text" id="color" name="color" placeholder="Color" class="form-control" required  ngModel [(ngModel)]="objPost.color" #color="ngModel"  />  
+			  <input type="number" id="mileage" name="mileage" placeholder="mileage(km)" class="form-control" required  ngModel [(ngModel)]="objPost.mileage" #mileage="ngModel" />       
 			</div>
-		</div>
+		</div> 
 		<!--mileage(km) and Car condition -->
 		<div class="item">
 		  <div class="name-item">
-			<input type="number" id="mileage" name="year" placeholder="mileage(km)" class="form-control" required  ngModel [(ngModel)]="objPost.mileage" #mileage="ngModel" />       
 		  </div>
 	
 		  <label>Condition</label>  
@@ -65,11 +64,11 @@
 			   Year is required!
 			</p>         
 		</div> 
-		<div *ngIf="color.invalid &&(color.dirty||color.touched)"class="alert">		
+		<!-- <div *ngIf="color.invalid &&(color.dirty||color.touched)"class="alert">		
 		  <p *ngIf="color.errors?.['required']" [ngClass]="'text-danger'" >
 			   Color is required!
 			</p>         
-		</div> 
+		</div>  -->
 		<div *ngIf="mileage.invalid &&(mileage.dirty||mileage.touched)"class="alert">		
 		  <p *ngIf="year.errors?.['required']" [ngClass]="'text-danger'" >
 		   Mileage(km)  is required!
