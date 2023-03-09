@@ -32,22 +32,21 @@ export class PostsService {
    * Get Post by Id
    * @param id
    */
-  public getPostById(id: string): Observable<PostDetailIF> {
+  public getPostById(id: number): Observable<PostDetailIF> {
     return this.http.get<PostDetailIF>(POSTAPI + "/" + id);
   }
 
   /**
    * Update Post by Id
    */
-  public updatePost(id: string, post: PostIF): Observable<Result> {
+  public updatePost(id: number, post: PostIF): Observable<Result> {
     return this.http.put<Result>(POSTAPI+ "/" + id, post);
   }
-
 
   /**
    * Delete Post by Id
    */
-  public deletePost(id: string): Observable<Result> {
+  public deletePost(id: number): Observable<Result> {
     return this.http.delete<Result>(POSTAPI + "/" + id);
   }
 }
