@@ -11,7 +11,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table'
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import {CdkTableModule} from '@angular/cdk/table';
@@ -22,6 +22,7 @@ import { MypostComponent } from './components/mypost/mypost.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import {MatSelectModule} from '@angular/material/select';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
+import {DeletePostComponent} from "./components/delete-post/delete-post.component";
 
 
 
@@ -42,8 +43,8 @@ import { PostSeachComponent } from './components/post-search/post-seach.componen
     AddPostComponent,
     MypostComponent,
     EditPostComponent,
+    DeletePostComponent,
     PostSeachComponent
-  
   ],
   imports: [
     BrowserModule,
@@ -56,8 +57,8 @@ import { PostSeachComponent } from './components/post-search/post-seach.componen
     MatTableModule,
     CdkTableModule,
     MatSelectModule ,
-    
-  
+
+
   ],
   providers: [],
   bootstrap: [AppComponent],
