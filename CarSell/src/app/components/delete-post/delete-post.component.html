@@ -1,16 +1,12 @@
 <body>
-	<form id="msform"> 
+	<form id="msform">
 		<fieldset>
 		  <h2 class="fs-title">Are you sure you want to delete the post : </h2>
-		 
-
-          <h3> ID:  'A0001' </h3>
-          <h3> Car Make:  Tesla</h3>
-          <h3> Car Model: Model 3 </h3>
-          <h3> Car Price: $30.000</h3>
-          <h3> Post Author: Maria</h3>
-
-
+          <h3> Title: {{objPost.title}} </h3>
+          <h3> Car Make:  {{objPost.make}}</h3>
+          <h3> Car Model: {{objPost.model}} </h3>
+          <h3> Car Price: {{objPost.price}}</h3>
+          <h3> Post Author: {{objPost.username}}</h3>
 		  <button type="button" class="btn btn-primary btn-lg"
 		  style="padding-left: 5.5rem; padding-right: 5.5rem;"(click)="btnSubmitWorks()">Delete</button>
           <button type="button" class="btn btn-danger btn-lg"

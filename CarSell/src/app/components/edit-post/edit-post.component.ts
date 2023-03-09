@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/model/post.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
-import { PostIF } from 'src/app/interfaces/restapi.interface';
+import {PostIF, Result} from 'src/app/interfaces/restapi.interface';
 import { PostDetailIF } from 'src/app/interfaces/restapi.interface';
 @Component({
   selector: 'app-edit-post',
@@ -10,51 +10,66 @@ import { PostDetailIF } from 'src/app/interfaces/restapi.interface';
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit {
-  postId: string | null = null;
+  postId: number;
   objPost:Post = new Post();
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService:PostsService) {
+    this.postId = -1;
   }
-  
+
   ngOnInit(): void {
-    this.postId = this.activatedRoute.snapshot.paramMap.get('id');
+    let id  = this.activatedRoute.snapshot.paramMap.get('id');
+
+    if(id === null) {
+      alert("Wrong access.");
+      this.router.navigate(['/postManagement']);
+
+    } else {
+      this.postId = +id;
+    }
+
     if (this.postId != null) {
       this.postService.getPostById(this.postId).subscribe((data: PostDetailIF) => {
-        console.info(data);
-
+        this.objPost.postID = data.postID;
         this.objPost.make = data.car.maker.makerName;
         this.objPost.model = data.car.carModel;
         this.objPost.year = data.year;
         this.objPost.mileage = data.mileage;
+        this.objPost.title = data.title;
         this.objPost.condition = data.condition;
         this.objPost.description = data.description;
         this.objPost.username = data.userName;
+        this.objPost.price = data.price;
+        this.objPost.carID = data.carID;
       });
     } else {
       console.error("Wrong user name.");
     }
-  
+
   }
- 
-  btnSubmitWorks(){
-    /*let postInf: PostIF = {
-      postID: this.postId,//post id = string but in the interface is number 
-      title: "", // what is title ?  it does not exist in the model 
+
+  btnSubmitWorks() {
+    console.log("Call update");
+
+    let postInf: PostIF = {
+      postID: this.postId,
+      title: this.objPost.title,
       description: this.objPost.description,
       year: this.objPost.year,
       mileage: this.objPost.mileage,
       condition: this.objPost.condition,
       price: this.objPost.price,
       userName: this.objPost.username,
-      carID: //how to get the car id ?
-    
+      carID: this.objPost.carID
     }
-    this.postService.updatePost(this.objPost.username, postInf).subscribe((result)=>{
-      if(result.result == "OK"){
-        this.router.navigate(['/postManagement']);
-      }else{
-        alert("Update user failed.");
-      }
-    } )*/
+
+    this.postService.updatePost(this.objPost.postID, postInf).subscribe(
+      (result)=>{
+        this.router.navigate(['/posts']);
+        alert("Updated successfully.");
+      },
+      (error) => {
+      alert(error.error.message);
+    } )
   }
 }
