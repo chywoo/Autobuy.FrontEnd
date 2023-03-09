@@ -65,14 +65,9 @@ export class EditPostComponent implements OnInit {
 
     this.postService.updatePost(this.objPost.postID, postInf).subscribe(
       (result)=>{
-      console.log(result);
-
-      if(result.result == "OK"){
-        this.router.navigate(['/postManagement']);
-      }else{
-        alert("Update user failed.");
-      }
-    },
+        this.router.navigate(['/posts']);
+        alert("Updated successfully.");
+      },
       (error) => {
       alert(error.error.message);
     } )
