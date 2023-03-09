@@ -13,6 +13,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { DeletePostComponent } from './components/delete-post/delete-post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { MypostComponent } from './components/mypost/mypost.component';
+import { PostSeachComponent } from './components/post-search/post-seach.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:"deletePost/:id", component:DeletePostComponent},
   {path:"editPost/:id", component:EditPostComponent},
   {path:"addPost", component:AddPostComponent},
-  {path:"mypost" , component:MypostComponent}
+  {path:"mypost" , component:MypostComponent},
+  {path:"postSearch", component: PostSeachComponent}
 ];
 
 @NgModule({

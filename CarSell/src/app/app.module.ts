@@ -21,6 +21,8 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { MypostComponent } from './components/mypost/mypost.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import {MatSelectModule} from '@angular/material/select';
+import { PostSeachComponent } from './components/post-search/post-seach.component';
+
 
 
 
@@ -39,7 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     PostManagementComponent,
     AddPostComponent,
     MypostComponent,
-    EditPostComponent
+    EditPostComponent,
+    PostSeachComponent
   
   ],
   imports: [
@@ -52,7 +55,9 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserAnimationsModule,
     MatTableModule,
     CdkTableModule,
-    MatSelectModule  
+    MatSelectModule ,
+    
+  
   ],
   providers: [],
   bootstrap: [AppComponent],

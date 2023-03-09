@@ -5,6 +5,7 @@ import { Make } from 'src/app/model/make.model';
 import { HttpClient } from '@angular/common/http';
 import { HomeSearch } from 'src/app/model/home.model';
 import {MakersService} from "../../services/makers.service";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit{
   makers: Make[] = [];
 
   constructor( private http: HttpClient, private homeService : HomeserviceService,
-               private makersService: MakersService){}
+               private makersService: MakersService, private router:Router){}
 
 ngOnInit(): void {
   this.makersService.getMakerList().subscribe(data => {
@@ -33,4 +34,10 @@ ngOnInit(): void {
     }
   });
   }
-}
+  public goToPage(pageName:string):void {
+   
+        this.router.navigate([`${pageName}`]);
+      } 
+   
+  }
+
