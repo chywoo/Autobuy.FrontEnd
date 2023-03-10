@@ -23,7 +23,7 @@ export class CarsService {
   /**
    * Get Car by Id
    */
-  public getMakeInfo(id:number): Observable<CarIF> {
+  public getCarInfo(id:number): Observable<CarIF> {
     let CARAPI = BASEAPI + "/" + id
     return this.http.get<CarIF>(CARAPI);
   }
