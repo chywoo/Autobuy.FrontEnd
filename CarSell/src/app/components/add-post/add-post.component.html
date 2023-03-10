@@ -3,8 +3,12 @@
     <h1>Add New Post</h1>
     <h5>Please input Car's Information</h5>
 
+
+
+
     <!--Car make and model-->
     <div class="item">
+
       <div class="name-item">
         <input type="text" id="make" name="make" placeholder="Make" class="form-control" required ngModel
                [(ngModel)]="objPost.make" #make="ngModel"/>
@@ -48,6 +52,10 @@
 
       <!--Car details-->
       <h5>More details about the Car</h5>
+      <div class="item">
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" required ngModel
+               [(ngModel)]="objPost.title" #make="ngModel"/>
+      </div>
       <div class="item">
         <p>Description</p>
         <textarea rows="5" id="description" name="description" class="form-control" ngModel
