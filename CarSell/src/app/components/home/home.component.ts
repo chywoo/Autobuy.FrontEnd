@@ -6,6 +6,8 @@ import {HttpClient} from '@angular/common/http';
 import {HomeSearch} from 'src/app/model/home.model';
 import {MakersService} from "../../services/makers.service";
 import {Router} from '@angular/router';
+import {CarsService} from "../../services/cars.service";
+import {CarIF} from "../../interfaces/restapi.interface";
 
 
 @Component({
@@ -18,12 +20,21 @@ export class HomeComponent implements OnInit {
   objHome: HomeSearch = new HomeSearch();
 
   makers: Make[] = [];
+  cars: CarIF[] = [];
 
-  constructor(private http: HttpClient, private homeService: HomeserviceService,
-              private makersService: MakersService, private router: Router) {
+  constructor(private http: HttpClient,
+              private homeService: HomeserviceService,
+              private makersService: MakersService,
+              private carService: CarsService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    this.showMakerList();
+    this.showAllCarModelList();
+  }
+
+  private showMakerList() {
     this.makersService.getMakerList().subscribe(
       data => {
         this.makers = [];
@@ -35,8 +46,21 @@ export class HomeComponent implements OnInit {
           this.makers.push(maker);
         }
       },
-      res => {
-        if (res.status === 504) {
+      error => {
+        if (error.status === 504) {
+          alert('API Server Unavailable.\nPlease be sure to start the API server before running the app.');
+        }
+      }
+    );
+  }
+
+  private showAllCarModelList() {
+    this.carService.getCarList().subscribe(
+      data => {
+        this.cars = data;
+      },
+      error => {
+        if (error.status === 504) {
           alert('API Server Unavailable.\nPlease be sure to start the API server before running the app.');
         }
       }
@@ -44,8 +68,18 @@ export class HomeComponent implements OnInit {
   }
 
   public goToPage(pageName: string): void {
-
     this.router.navigate([`${pageName}`]);
+  }
+
+  onChange(value:any) {
+    this.cars = [];
+
+    // get the selected maker's car model list
+    this.carService.getCarListForMake(value.target.value).subscribe(
+      data => {
+        this.cars = data;
+      }
+    );
   }
 }
 

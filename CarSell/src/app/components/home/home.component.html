@@ -2,15 +2,15 @@
     <header>
         <h1 id="title">[ Find Your Dream Car ]</h1>
         <h1 id ="subTitle">We have more than a thousand of cars for you to choose!</h1>
-        <p id="readMore">READ MORE</p>   
+        <p id="readMore">READ MORE</p>
     </header>
     <main>
-<form #homeForm="ngForm" id="formHome" > 
+<form #homeForm="ngForm" id="formHome" >
   <ul id="navbarUl" >
     <li>
       <div class="col-md-3" style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Make</label>
-        <select class="form-control" id="make" name="make" class="form-control" required  [(ngModel)]="objHome.make" #make.value="ngModel" ngModel>
+        <select class="form-control" id="make" name="make" class="form-control" required  (change)="onChange($event)" [(ngModel)]="objHome.make" #make.value="ngModel" ngModel>
           <option *ngFor="let make of makers" [value]="make.id">{{ make.name }}</option>
         </select>
       </div>
@@ -19,7 +19,7 @@
       <div class="col-md-3" style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Model</label>
         <select class="form-control" id="model" name="mode" class="form-control" required  [(ngModel)]="objHome.model" #model.value="ngModel" ngModel>
-          <option *ngFor="let make of makers" [value]="make.id">{{ make.name }}</option>
+          <option *ngFor="let car of cars" [value]="car.carID">{{ car.carModel }}</option>
         </select>
       </div>
 
@@ -44,12 +44,12 @@
       <button (click)="goToPage('postSearch')" >SEARCH</button>
     </li>
   </ul>
-  
+
 </form>
 <div class="card-footer" style="color:white">
   {{homeForm.value | json}}
   </div>
 </main>
-   
-</body> 
+
+</body>
 
