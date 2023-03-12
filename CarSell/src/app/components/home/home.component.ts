@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
   }
 
   public goToPage(pageName: string): void {
-    this.router.navigate([`${pageName}`]);
+    this.router.navigate([`${pageName}`], {queryParams: this.objHome});
   }
 
   onChange(value:any) {
