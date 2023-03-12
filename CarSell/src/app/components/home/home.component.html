@@ -28,7 +28,7 @@
       <div class="col-md-3" style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Max Price</label>
         <select class="form-control" id="maxPrice" name="maxPrice" class="form-control" required  [(ngModel)]="objHome.maxPrice" #maxPrice.value="ngModel" ngModel>
-          <option *ngFor="let make of makers" [value]="make.id">{{ make.name }}</option>
+          <option *ngFor="let price of prices" [value]="price">${{ price }}</option>
         </select>
       </div>
     </li>
@@ -36,7 +36,7 @@
       <div class="col-md-3"style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Year</label>
         <select class="form-control" id="year" name="year" class="form-control" required  [(ngModel)]="objHome.year" #year.value="ngModel" ngModel>
-          <option *ngFor="let make of makers" [value]="make.id">{{ make.name }}</option>
+          <option *ngFor="let year of years" [value]=year>{{ year }}</option>
         </select>
       </div>
     </li>

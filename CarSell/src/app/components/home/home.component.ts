@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
   makers: Make[] = [];
   cars: CarIF[] = [];
+  prices: number[] = [5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 50000, 100000, 200000];
+  years: number[] = [...Array(24)].map((_, i) => 2000 + i);
 
   constructor(private http: HttpClient,
               private homeService: HomeserviceService,
