@@ -17,16 +17,6 @@ export interface Card {
 })
 export class PostSeachComponent implements OnInit {
   objHome: HomeSearch = new HomeSearch();
-
-  myimage1: string = "assets/img/AlphaRomeo_4C.jpeg";
-  myimage2: string = "assets/img/BMW_3series.jpeg" ;
-  myimage3:string = "assets/img/Chevrolet_Corvette.jpeg";
-  myimage4:string = "assets/img/Ford_F150.jpeg";
-  myimage5:string = "assets/img/Genesis_G80.jpeg";
-  myimage6:string = "assets/img/Honda_Civic.jpeg";
-  myimage7:string = "assets/img/Hundai_Tucson.jpeg";
-  myimage8:string = "assets/img/Hyundai_Casper.jpeg";
-
   cards:Card[] = [];
 
   constructor(private route: ActivatedRoute, private postsService: PostsService) { }
