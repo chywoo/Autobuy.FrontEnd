@@ -14,6 +14,7 @@ import { DeletePostComponent } from './components/delete-post/delete-post.compon
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { MypostComponent } from './components/mypost/mypost.component';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
+import {LogoutComponent} from "./components/logout/logout.component";
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"sign-up",component:SignUpComponent},
   {path:"registationConfirmation",component:DialogBoxComponent},
   {path:"login",component:LoginComponent},
+  {path:"logout",component:LogoutComponent},
   {path:"userManagement",component:UserManagementComponent},
   {path:"editUser/:id", component:EditUserComponent},
   {path:"deleteUser/:id",component:DeleteUserComponent},

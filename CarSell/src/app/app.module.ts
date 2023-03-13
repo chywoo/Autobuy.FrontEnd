@@ -23,6 +23,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
 import {MatSelectModule} from '@angular/material/select';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
 import {DeletePostComponent} from "./components/delete-post/delete-post.component";
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -44,7 +45,8 @@ import {DeletePostComponent} from "./components/delete-post/delete-post.componen
     MypostComponent,
     EditPostComponent,
     DeletePostComponent,
-    PostSeachComponent
+    PostSeachComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
