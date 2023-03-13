@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
     this.auth.login(user).subscribe((result: Result) => {
       if (result.result == "OK") {
         console.debug("Login OK");
+        // store user name in local storage
+        localStorage.setItem('userName', user.userName);
 
         alert("Login OK");
         this.router.navigate(['/']);
