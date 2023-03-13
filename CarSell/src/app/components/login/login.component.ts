@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginModel} from 'src/app/model/loginModel.model';
 import {AuthService} from "../../services/auth.service";
 import {LoginIF, Result} from "../../interfaces/restapi.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,14 @@ import {LoginIF, Result} from "../../interfaces/restapi.interface";
 export class LoginComponent implements OnInit {
   objLoginModel: LoginModel = new LoginModel();
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.auth.isLoggedIn().subscribe((result: Result) => {
       if (result.result == "OK") {
         alert("Already logged in");
+        this.router.navigate(['/']);
       }
     });
   }
@@ -30,8 +33,9 @@ export class LoginComponent implements OnInit {
     this.auth.login(user).subscribe((result: Result) => {
       if (result.result == "OK") {
         console.debug("Login OK");
-        // #TODO: Navigate to success page
+
         alert("Login OK");
+        this.router.navigate(['/']);
       } else {
         console.error(result.message);
         // #TODO: Show error message
