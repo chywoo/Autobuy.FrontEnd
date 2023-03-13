@@ -1,3 +1,5 @@
+import {PostIF} from "../interfaces/restapi.interface";
+
 export class Post {
   postID: any = null;
   make: any = null;
@@ -28,4 +30,19 @@ export class Post {
     this.condition = condition;
     this.carID = carID;
   }
+}
+
+/**
+ * for creating a new post.
+ */
+export class NewPost implements PostIF {
+  postID: number = 0;
+  title: string = "";
+  description: string = "";
+  year: number = 0;
+  mileage: number = 0;
+  condition: string = "";
+  price: number = 0;
+  userName: string = "";
+  carID: number = 0;
 }
