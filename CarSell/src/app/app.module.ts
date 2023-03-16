@@ -24,9 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
 import {DeletePostComponent} from "./components/delete-post/delete-post.component";
 import { LogoutComponent } from './components/logout/logout.component';
-
-
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -59,8 +57,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatTableModule,
     CdkTableModule,
     MatSelectModule ,
-
-
+    MatPaginatorModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent],

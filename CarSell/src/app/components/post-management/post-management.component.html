@@ -1,4 +1,9 @@
 
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
 <main>
   <nav>
     <ul class="nav justify-content-left" id="navbarUl">
@@ -47,8 +52,6 @@
       <a [routerLink]="['/deletePost',element.post_id]">Delete </a>
     </td>
   </ng-container>
-
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

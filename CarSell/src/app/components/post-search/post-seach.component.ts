@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,Injectable, NgModule} from '@angular/core';
 import {HomeSearch} from "../../model/home.model";
 import {ActivatedRoute} from "@angular/router";
 import {PostsService} from "../../services/posts.service";
+
 
 export interface Card {
   title: string,
@@ -15,7 +16,9 @@ export interface Card {
   templateUrl: './post-seach.component.html',
   styleUrls: ['./post-seach.component.css']
 })
+
 export class PostSeachComponent implements OnInit {
+  
   objHome: HomeSearch = new HomeSearch();
   cards:Card[] = [];
 
@@ -47,4 +50,6 @@ export class PostSeachComponent implements OnInit {
     });
   }
 }
+
+
 
