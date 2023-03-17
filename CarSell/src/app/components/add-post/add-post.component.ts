@@ -90,10 +90,10 @@ export class AddPostComponent implements OnInit {
     this.postsService.createPost(this.objPost).subscribe( data => {
       alert("Post created successfully.")
 
-      this.router.navigate([`"/posts"`]);
+      this.router.navigate(["/posts"]);
     },
     error => {
-      alert(error.error.message());
+      alert(error.error.message);
     });
   }
 }
