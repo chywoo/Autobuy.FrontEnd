@@ -2,6 +2,7 @@ import {Component, OnInit,Injectable, NgModule} from '@angular/core';
 import {HomeSearch} from "../../model/home.model";
 import {ActivatedRoute} from "@angular/router";
 import {PostsService} from "../../services/posts.service";
+import {PostListIF} from "../../interfaces/restapi.interface";
 
 
 export interface Card {
@@ -18,7 +19,7 @@ export interface Card {
 })
 
 export class PostSeachComponent implements OnInit {
-  
+
   objHome: HomeSearch = new HomeSearch();
   cards:Card[] = [];
 
@@ -34,15 +35,17 @@ export class PostSeachComponent implements OnInit {
       console.log(this.objHome);
     });
 
-    this.postsService.getPostList().subscribe( data => {
+    this.postsService.searchPostList().subscribe( (data:PostListIF) => {
       this.cards = [];
 
-      for (let i = 0; i < data.length; i++) {
+      let posts = data.posts;
+
+      for (let i = 0; i < posts.length; i++) {
         let card = {
-          title: data[i].title,
-          description: data[i].description,
+          title: posts[i].title,
+          description: posts[i].description,
           buttonText: 'Button',
-          img: 'assets/img/' + data[i].car.imageURL
+          img: 'assets/img/' + posts[i].car.imageURL
         };
         console.log(card);
         this.cards.push(card);

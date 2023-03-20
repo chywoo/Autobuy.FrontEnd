@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PostDetailIF, PostIF, Result} from "../interfaces/restapi.interface";
+import {PostDetailIF, PostIF, PostListIF, Result} from "../interfaces/restapi.interface";
 
 
 const POSTAPI = "/api/v1/posts";
@@ -24,8 +24,12 @@ export class PostsService {
   /**
    * Get Post List
    */
-  public getPostList(): Observable<PostDetailIF[]> {
-    return this.http.get<PostDetailIF[]>(POSTAPI);
+  public getPostList(pageSize: number, page: number, userName: string): Observable<PostListIF> {
+    return this.http.get<PostListIF>(POSTAPI + "?pageSize=" + pageSize + "&page=" + page + "&userName=" + userName + "&search=");
+  }
+
+  public searchPostList(): Observable<PostListIF> {
+    return this.http.get<PostListIF>(POSTAPI);
   }
 
   /**
