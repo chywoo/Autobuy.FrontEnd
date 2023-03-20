@@ -66,3 +66,10 @@ export interface PostDetailIF {
   author: UserIF,  // This field is used in the GET method
   car: CarIF // This field is used in the GET method
 }
+
+export interface PostListIF {
+  total: number,
+  pageSize: number,
+  page: number,
+  posts: PostDetailIF[]
+}
