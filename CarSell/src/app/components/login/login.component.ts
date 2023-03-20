@@ -43,6 +43,9 @@ export class LoginComponent implements OnInit {
         // #TODO: Show error message
         alert("Login failed: " + result.message)
       }
+    }, (error) => {
+      console.error(error);
+      alert("Fail to connect the server.\nPlease check the server.");
     });
   }
 }
