@@ -51,7 +51,6 @@ export class PostSeachComponent implements OnInit {
           buttonText: 'Button',
           img: 'assets/img/' + posts[i].car.imageURL
         };
-        console.log(card);
         this.cards.push(card);
       }
     });
@@ -60,7 +59,6 @@ export class PostSeachComponent implements OnInit {
   changePage(pageEvent: any) {
     this.pageSize = pageEvent.pageSize;
     this.page = pageEvent.pageIndex;
-    console.log(pageEvent);
     this.ngOnInit();
   }
 }
