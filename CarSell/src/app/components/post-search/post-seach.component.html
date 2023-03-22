@@ -1,6 +1,7 @@
 <mat-paginator [length]="100"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="changePage($event)"
               aria-label="Select page">
 </mat-paginator>
 
@@ -9,7 +10,7 @@
   <div class="wrap" >
     <div class="container" >
       <div class="col-md-3" *ngFor="let card of cards" style="display: inline-block;" >
-        <img class="box-image" [src]="card.img" alt="Card image cap" style="height: 200px; width: 300px; border-radius: 10px; padding:10px" > 
+        <img class="box-image" [src]="card.img" alt="Card image cap" style="height: 200px; width: 300px; border-radius: 10px; padding:10px" >
         <div class="title-flex">
           <h3 class="box-title" style="padding:10px">{{card.title}} <Title></Title></h3>
         </div>
@@ -25,4 +26,3 @@
 
 
 
-  

@@ -25,12 +25,31 @@ export class PostsService {
    * Get Post List
    */
   public getPostList(pageSize: number, page: number, userName: string): Observable<PostListIF> {
-    return this.http.get<PostListIF>(POSTAPI + "?pageSize=" + pageSize + "&page=" + page + "&userName=" + userName + "&search=");
+    return this.http.get<PostListIF>(POSTAPI + "?pageSize=" + pageSize + "&page=" + page + "&userName=" + userName);
   }
 
-  public searchPostList(): Observable<PostListIF> {
-    return this.http.get<PostListIF>(POSTAPI);
+  public searchPostList(pageSize: number, page: number, make:number, model:number, maxPrice:number, minYear:number): Observable<PostListIF> {
+    let search = "";
+
+    if (make != undefined) {
+      search += "&makeID=" + make;
+    }
+
+    if (model != undefined) {
+      search += "&carModel=" + model;
+    }
+
+    if (maxPrice != undefined) {
+      search += "&maxPrice=" + maxPrice;
+    }
+
+    if (minYear != undefined) {
+      search += "&minYear=" + minYear;
+    }
+
+    return this.http.get<PostListIF>(POSTAPI + "?pageSize=" + pageSize + "&page=" + page + search);
   }
+
 
   /**
    * Get Post by Id

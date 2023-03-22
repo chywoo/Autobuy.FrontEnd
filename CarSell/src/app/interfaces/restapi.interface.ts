@@ -1,14 +1,14 @@
 export interface  CarIF {
   carID: number,
   carModel: string,
-  makerID: number,
+  makeID: number,
   imageURL: string,
-  maker: MakerIF
+  make: MakeIF
 }
 
-export interface MakerIF {
-  makerID: number,
-  makerName: string
+export interface MakeIF {
+  makeID: number,
+  makeName: string
 }
 
 export interface Result {

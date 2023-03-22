@@ -7,7 +7,7 @@
     <label>Maker</label>
     <select id="make" name="make" class="form-control" required (change)="onChange($event)">
       <option value="" disabled selected>Select Maker</option>
-      <option *ngFor="let make of makers" [value]="make.id">{{ make.name }}</option>
+      <option *ngFor="let make of makes" [value]="make.id">{{ make.name }}</option>
     </select>
 
     <label>Model</label>

@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('roleID');
         localStorage.removeItem('roleName');
       }
+    }, (error) => {
+      //console.error(error);
     });
   }
 

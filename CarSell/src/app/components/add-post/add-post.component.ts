@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NewPost, Post} from 'src/app/model/post.model';
 import {Router} from '@angular/router';
 import {Make} from "../../model/make.model";
-import {MakersService} from "../../services/makers.service";
+import {MakesService} from "../../services/makes.service";
 import {CarIF} from "../../interfaces/restapi.interface";
 import {CarsService} from "../../services/cars.service";
 import {PostsService} from "../../services/posts.service";
@@ -20,14 +20,14 @@ export interface Condition {
 })
 export class AddPostComponent implements OnInit {
   objPost: NewPost = new NewPost();
-  makers: Make[] = [];
+  makes: Make[] = [];
   cars: CarIF[] = [];
 
   prices: number[] = [5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 50000, 100000, 200000];
   years: number[] = [...Array(24)].map((_, i) => 2000 + i);
 
   constructor(private router: Router,
-              private makersService: MakersService,
+              private makesService: MakesService,
               private carService: CarsService,
               private postsService: PostsService,
               private authService: AuthService) {
@@ -63,14 +63,14 @@ export class AddPostComponent implements OnInit {
         }
       });
 
-    this.makersService.getMakerList().subscribe(data => {
-      this.makers = [];
+    this.makesService.getMakeList().subscribe(data => {
+      this.makes = [];
       for (let i = 0; i < data.length; i++) {
         let maker = {
-          id: data[i].makerID,
-          name: data[i].makerName
+          id: data[i].makeID,
+          name: data[i].makeName
         }
-        this.makers.push(maker);
+        this.makes.push(maker);
       }
     });
   }

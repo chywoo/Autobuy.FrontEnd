@@ -4,7 +4,7 @@ import {GlobalService} from 'src/app/services/global.service';
 import {Make} from 'src/app/model/make.model';
 import {HttpClient} from '@angular/common/http';
 import {HomeSearch} from 'src/app/model/home.model';
-import {MakersService} from "../../services/makers.service";
+import {MakesService} from "../../services/makes.service";
 import {Router} from '@angular/router';
 import {CarsService} from "../../services/cars.service";
 import {CarIF} from "../../interfaces/restapi.interface";
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private homeService: HomeserviceService,
-              private makersService: MakersService,
+              private makersService: MakesService,
               private carService: CarsService,
               private router: Router) {
   }
@@ -37,13 +37,13 @@ export class HomeComponent implements OnInit {
   }
 
   private showMakerList() {
-    this.makersService.getMakerList().subscribe(
+    this.makersService.getMakeList().subscribe(
       data => {
         this.makers = [];
         for (let i = 0; i < data.length; i++) {
           let maker = {
-            id: data[i].makerID,
-            name: data[i].makerName
+            id: data[i].makeID,
+            name: data[i].makeName
           }
           this.makers.push(maker);
         }

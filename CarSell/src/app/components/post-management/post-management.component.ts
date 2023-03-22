@@ -51,8 +51,9 @@ export class PostManagementComponent implements OnInit {
     });
 
     let userName = localStorage.getItem("userName");
+    let roleID = localStorage.getItem("roleID");
 
-    if (userName == null) {
+    if (userName == null || roleID == null) {
       this.router.navigate(['/login']);
       return;
     }
@@ -67,7 +68,7 @@ export class PostManagementComponent implements OnInit {
         let post:Element = {
           post_id: posts[i].postID,
           position: i+1,
-          car_make: posts[i].car.maker.makerName,
+          car_make: posts[i].car.make.makeName,
           car_model: posts[i].car.carModel,
           car_price: posts[i].price.toString(),
           car_description: posts[i].description,

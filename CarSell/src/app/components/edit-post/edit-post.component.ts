@@ -31,7 +31,7 @@ export class EditPostComponent implements OnInit {
     if (this.postId != null) {
       this.postService.getPostById(this.postId).subscribe((data: PostDetailIF) => {
         this.objPost.postID = data.postID;
-        this.objPost.make = data.car.maker.makerName;
+        this.objPost.make = data.car.make.makeName;
         this.objPost.model = data.car.carModel;
         this.objPost.year = data.year;
         this.objPost.mileage = data.mileage;

@@ -23,8 +23,8 @@ export class CarsService {
   /**
    * Get Car for specific make list
    */
-  public getCarListForMake(makerID:number): Observable<CarIF[]> {
-    let CARAPI = BASEAPI + "?makerID=" + makerID;
+  public getCarListForMake(makeID:number): Observable<CarIF[]> {
+    let CARAPI = BASEAPI + "?makeID=" + makeID;
     return this.http.get<CarIF[]>(CARAPI);
   }
 

@@ -3,6 +3,7 @@ import {HomeSearch} from "../../model/home.model";
 import {ActivatedRoute} from "@angular/router";
 import {PostsService} from "../../services/posts.service";
 import {PostListIF} from "../../interfaces/restapi.interface";
+import {Observable} from "rxjs";
 
 
 export interface Card {
@@ -22,6 +23,8 @@ export class PostSeachComponent implements OnInit {
 
   objHome: HomeSearch = new HomeSearch();
   cards:Card[] = [];
+  pageSize = 10;
+  page = 1;
 
   constructor(private route: ActivatedRoute, private postsService: PostsService) { }
 
@@ -29,13 +32,14 @@ export class PostSeachComponent implements OnInit {
     let maker=this.route.queryParams.subscribe(params => {
       this.objHome.make = params['make'];
       this.objHome.model = params['model'];
-      this.objHome.year = params['year'];
       this.objHome.maxPrice = params['maxPrice'];
+      this.objHome.year = params['year'];
 
       console.log(this.objHome);
     });
 
-    this.postsService.searchPostList().subscribe( (data:PostListIF) => {
+    this.postsService.searchPostList(this.pageSize, this.page,  this.objHome.make, this.objHome.model, this.objHome.maxPrice, this.objHome.year)
+      .subscribe( (data:PostListIF) => {
       this.cards = [];
 
       let posts = data.posts;
@@ -51,6 +55,13 @@ export class PostSeachComponent implements OnInit {
         this.cards.push(card);
       }
     });
+  }
+
+  changePage(pageEvent: any) {
+    this.pageSize = pageEvent.pageSize;
+    this.page = pageEvent.pageIndex;
+    console.log(pageEvent);
+    this.ngOnInit();
   }
 }
 
