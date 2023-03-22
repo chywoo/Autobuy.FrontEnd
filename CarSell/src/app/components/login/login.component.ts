@@ -22,6 +22,11 @@ export class LoginComponent implements OnInit {
       if (result.result == "OK") {
         alert("Already logged in");
         this.router.navigate(['/']);
+      } else {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('fullName');
+        localStorage.removeItem('roleID');
+        localStorage.removeItem('roleName');
       }
     });
   }

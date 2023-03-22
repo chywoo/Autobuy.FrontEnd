@@ -14,7 +14,12 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
     this.authService.logout().subscribe(data => {
       localStorage.removeItem('userName');
+      localStorage.removeItem('fullName');
+      localStorage.removeItem('roleID');
+      localStorage.removeItem('roleName');
+
       alert("You are logged out");
+
       this.router.navigate(['/']);
     }, error => {
       alert("Error: " + error);
