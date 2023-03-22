@@ -36,6 +36,13 @@ export interface UserDetailIF {
   role: RoleIF
 }
 
+export interface UserListIF {
+  total: number,
+  pageSize: number,
+  page: number,
+  users: UserDetailIF[]
+}
+
 export interface LoginIF {
   userName: string,
   password: string

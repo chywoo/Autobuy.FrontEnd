@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import {UserIF, Result, UserDetailIF} from "../interfaces/restapi.interface";
+import {UserIF, Result, UserDetailIF, UserListIF} from "../interfaces/restapi.interface";
 
 
 const USERAPI = "/api/v1/users";
@@ -24,8 +24,8 @@ export class UsersService {
   /**
    * Get User List
    */
-  public getUserList(): Observable<UserDetailIF[]> {
-    return this.http.get<UserDetailIF[]>(USERAPI);
+  public getUserList(pageSize: number, page: number): Observable<UserListIF> {
+    return this.http.get<UserListIF>(USERAPI + "?pageSize=" + pageSize + "&page=" + page);
   }
 
   /**

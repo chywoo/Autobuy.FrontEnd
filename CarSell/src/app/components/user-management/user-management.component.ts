@@ -22,9 +22,18 @@ export class UserManagementComponent  implements OnInit{
   displayedColumns: string[] = ['position', 'name','email','username','action'];
   dataSource:Element[] = [] // ELEMENT_DATA;
   objUser:User = new User();
+
+  pageSize: number;
+  page: number;
+  totalUsers: number;
+
   constructor(private router:Router,
               private userService: UsersService,
-              private authService: AuthService) {  }
+              private authService: AuthService) {
+    this.pageSize = 10;
+    this.page = 0;
+    this.totalUsers = 0;
+  }
 
 
   ngOnInit(): void {
@@ -44,10 +53,13 @@ export class UserManagementComponent  implements OnInit{
       return;
     }
 
-    this.userService.getUserList().subscribe((data)=>{
+    this.userService.getUserList(this.pageSize, this.page).subscribe((data)=>{
       this.dataSource = [];
-      for(let i=0; i<data.length; i++){
-        let user = data[i];
+      this.totalUsers = data.total;
+
+      let users = data.users;
+      for(let i=0; i< users.length; i++){
+        let user = users[i];
         let item:Element = {position: i + 1, name: user.fullName, email: user.email, username: user.userName}
 
         this.dataSource.push(item);
@@ -58,6 +70,12 @@ export class UserManagementComponent  implements OnInit{
     });
   }
 
+  changePage(pageEvent: any) {
+    this.pageSize = pageEvent.pageSize;
+    this.page = pageEvent.pageIndex;
+    console.log(pageEvent);
+    this.ngOnInit();
+  }
 }
 
 

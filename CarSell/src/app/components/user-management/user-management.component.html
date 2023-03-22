@@ -1,7 +1,8 @@
 
-<mat-paginator [length]="100"
+<mat-paginator [length]="this.totalUsers"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="changePage($event)"
               aria-label="Select page">
 </mat-paginator>
 <main>
@@ -33,9 +34,9 @@
 <!-- username Action -->
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action</th>
-    <td mat-cell *matCellDef="let element"> 
+    <td mat-cell *matCellDef="let element">
       <a [routerLink]="['/editUser',element.username]">Edit</a>
-      <a [routerLink]="['/deleteUser',element.username]">Delete</a>  
+      <a [routerLink]="['/deleteUser',element.username]">Delete</a>
     </td>
   </ng-container>
 
