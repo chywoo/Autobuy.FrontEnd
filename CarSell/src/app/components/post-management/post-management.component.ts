@@ -42,12 +42,10 @@ export class PostManagementComponent implements OnInit {
   ngOnInit(): void {
 
     this.authService.isLoggedIn().subscribe((result: Result) => {
-      if (result.result != "OK") {
-        alert("Login required");
-        this.router.navigate(['/login']);
-
-        return;
-      }
+    }, error => {
+      alert("Login required");
+      this.router.navigate(['/login']);
+      return;
     });
 
     let userName = localStorage.getItem("userName");
@@ -77,6 +75,9 @@ export class PostManagementComponent implements OnInit {
 
         this.dataSource.push(post);
       }
+    }, error => {
+      alert("You are not authorized to access this page");
+      this.router.navigate(['/']);
     });
   }
 
