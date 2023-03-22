@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {PostsService} from "../../services/posts.service";
-import {PostDetailIF, PostIF, PostListIF} from "../../interfaces/restapi.interface";
+import {PostDetailIF, PostIF, PostListIF, Result} from "../../interfaces/restapi.interface";
 import {MatPaginator} from "@angular/material/paginator";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 
 export interface Element {
@@ -30,13 +31,25 @@ export class PostManagementComponent implements OnInit {
   page: number;
   totalPosts: number;
 
-  constructor(private postsService: PostsService, private router: Router) {
+  constructor(private authService:AuthService,
+              private postsService: PostsService,
+              private router: Router) {
     this.pageSize = 10;
-    this.page = 1;
+    this.page = 0;
     this.totalPosts = 0;
   }
 
   ngOnInit(): void {
+
+    this.authService.isLoggedIn().subscribe((result: Result) => {
+      if (result.result != "OK") {
+        alert("Login required");
+        this.router.navigate(['/login']);
+
+        return;
+      }
+    });
+
     let userName = localStorage.getItem("userName");
 
     if (userName == null) {
