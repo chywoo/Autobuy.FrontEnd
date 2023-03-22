@@ -34,7 +34,7 @@
     </li>
     <li>
       <div class="col-md-3"style="width: 200px; padding: 10px;">
-        <label for="make" class="control-label" style="color: white;">Year</label>
+        <label for="make" class="control-label" style="color: white;">Min Year</label>
         <select class="form-control" id="year" name="year" class="form-control" required  [(ngModel)]="objHome.year" #year.value="ngModel" ngModel>
           <option *ngFor="let year of years" [value]=year>{{ year }}</option>
         </select>
