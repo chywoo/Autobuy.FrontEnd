@@ -8,21 +8,11 @@ import { UsersService } from './services/users.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'CarSell';
- 
-  constructor(private _userService:UsersService){}
- 
-  ngOnInit(): void {
-    
-  }
+  title = 'AutoBuy';
 
-  getUserList(){
-    this._userService.getUserList().subscribe({
-      next:(res)=>{
-        console.log(res);
-      },
-      error:console.log
-      
-    })
+  constructor(private _userService:UsersService){}
+
+  ngOnInit(): void {
+
   }
 }
