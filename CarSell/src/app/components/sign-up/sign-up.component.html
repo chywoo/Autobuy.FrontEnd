@@ -1,9 +1,9 @@
 
-	<form id="msform" #userForm="ngForm" > 
+	<form id="msform" #userForm="ngForm" >
 		<fieldset>
 		  <h2 class="fs-title">Create your account</h2>
 		  <input type="text" name="name" placeholder="Full Name" class="form-control" required minlength="4" [(ngModel)]="objUser.name" #name="ngModel" ngModel/>
-		  <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">		
+		  <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">
 			<p *ngIf="name.errors?.['required']" [ngClass]="'text-danger'" >
 				 Name is required!
 			  </p>
@@ -11,15 +11,15 @@
 				Name must be at least 4 characters long!
 			  </small>
 		  </div>
-		  <input type="text" name="username" placeholder="User Name"class="form-control" required minlength="2"[(ngModel)]="objUser.username" #username="ngModel" ngModel/>	  
-		  <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">		
+		  <input type="text" name="username" placeholder="User Name"class="form-control" required minlength="2"[(ngModel)]="objUser.username" #username="ngModel" ngModel/>
+		  <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">
 			<p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
 				 User Name is required!
 			  </p>
 			  <small *ngIf="username.errors?.['minlength']" [ngClass]="'text-danger'">
 				User name must be at least 2 characters long!
 			  </small>
-		  </div> 
+		  </div>
 		  <input type="email" name="email" placeholder="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel />
 		  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
 			<p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
@@ -28,7 +28,7 @@
 			<div [hidden]="!email.errors?.['pattern']" [ngClass]="'text-danger'">
 				Email is invalid!
 			</div>
-		  </div>		  
+		  </div>
 		  <input type="password" name="pass" placeholder="Password" class="form-control"  required [(ngModel)]="objUser.password" #password="ngModel"  ngModel/>
 		  <div *ngIf="password.invalid && (password.dirty || password.touched)" >
 			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
@@ -42,6 +42,18 @@
 			</p>
 			<div [hidden]="!passwordAgain.errors?.['pattern']" [ngClass]="'text-danger'"> Password does not match.</div>
 		  </div>
+
+      <select name="roleID" name="roleID"  class="form-control" required [(ngModel)]="objUser.roleID" #roleID="ngModel" ngModel>
+        <option value="1">User</option>
+        <option value="2">Seller</option>
+        <option value="3">Admin</option>
+      </select>
+      <div *ngIf="roleID.invalid && (roleID.dirty || roleID.touched)" class="alert">
+        <p *ngIf="roleID.errors?.['required']" [ngClass]="'text-danger'">
+          User Type is Required
+        </p>
+      </div>
+
 		  <button type="button" class="btn btn-primary btn-lg"
 		  style="padding-left: 5.5rem; padding-right: 5.5rem;"(click)="goToPage('registationConfirmation')" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>

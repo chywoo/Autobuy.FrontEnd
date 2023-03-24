@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from "../../services/users.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserIF} from "../../interfaces/restapi.interface";
+import {UserDetailIF, UserIF} from "../../interfaces/restapi.interface";
 import {User} from "../../model/signUp.model";
 
 @Component({
@@ -20,12 +20,13 @@ export class DeleteUserComponent implements OnInit {
     this.userName = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (this.userName != null) {
-      this.userService.getUserById(this.userName).subscribe((data: UserIF) => {
+      this.userService.getUserById(this.userName).subscribe((data: UserDetailIF) => {
         console.info(data);
         this.objUser.username = data.userName;
         this.objUser.name = data.fullName;
         this.objUser.email = data.email;
         this.objUser.password = data.password;
+        this.objUser.roleID = data.role.roleID;
       });
     } else {
       console.error("Wrong user name.");

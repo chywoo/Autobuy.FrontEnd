@@ -25,7 +25,8 @@ export interface UserIF {
   fullName: string,
   userName: string,
   email: string,
-  password: string
+  password: string,
+  roleID: number
 }
 
 export interface UserDetailIF {
