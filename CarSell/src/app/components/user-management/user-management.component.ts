@@ -6,9 +6,10 @@ import {Result} from "../../interfaces/restapi.interface";
 import {AuthService} from "../../services/auth.service";
 
 export interface Element {
+  username:string;
   name: string;
   email:string;
-  username:string
+  roleName: string;
   position: number;
 
 }
@@ -19,7 +20,7 @@ export interface Element {
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent  implements OnInit{
-  displayedColumns: string[] = ['position', 'name','email','username','action'];
+  displayedColumns: string[] = ['position','username', 'name','email','roleName','action'];
   dataSource:Element[] = [] // ELEMENT_DATA;
   objUser:User = new User();
 
@@ -60,7 +61,7 @@ export class UserManagementComponent  implements OnInit{
       let users = data.users;
       for(let i=0; i< users.length; i++){
         let user = users[i];
-        let item:Element = {position: i + 1, name: user.fullName, email: user.email, username: user.userName}
+        let item:Element = {position: i + 1, name: user.fullName, email: user.email, username: user.userName, roleName: user.role.roleName }
 
         this.dataSource.push(item);
       }
