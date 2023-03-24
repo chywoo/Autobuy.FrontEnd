@@ -1,24 +1,29 @@
 <!-- <header>
     <ul class="nav justify-content-left" id="navbarUl">
         <img [src]='myimage1' alt="logo" class= "logo" style="height: 100px; width: 200px;">
-    </ul> 
+    </ul>
     <ul class="nav justify-content-left" id="navbarUl" >
         <li><a routerLink="/home">HOME</a></li>
         <li><a routerLink="/sign-up">SIGN UP</a></li>
-        <li><a routerLink="/login">LOGIN</a></li>  
-        <li ><a class="userPosts" routerLink="/userManagement">Users</a></li>      
-        <li ><a class="userPosts" routerLink="/posts">Posts</a></li>  
-    </ul> 
+        <li><a routerLink="/login">LOGIN</a></li>
+        <li ><a class="userPosts" routerLink="/userManagement">Users</a></li>
+        <li ><a class="userPosts" routerLink="/posts">Posts</a></li>
+    </ul>
 </header> -->
 <header>
-    <ul class="nav justify-content-left" id="navbarUl">
+    <ul class="nav justify-content-left">
      <p>AutoBuy</p>
-    </ul> 
+    </ul>
     <ul class="nav justify-content-left" id="navbarUl" >
         <li><a routerLink="/home">HOME</a></li>
         <li><a routerLink="/sign-up">SIGN UP</a></li>
-        <li><a routerLink="/login">LOGIN</a></li>  
-        <li ><a class="userPosts" routerLink="/userManagement">Users</a></li>      
-        <li ><a class="userPosts" routerLink="/posts">Posts</a></li>  
-    </ul> 
+      <div *ngIf="this.isLogin"class="alert">
+        <li><a routerLink="/logout">LOGOUT</a></li>
+      </div>
+      <div *ngIf="!this.isLogin"class="alert">
+        <li><a routerLink='/login'>LOGIN</a></li>
+      </div>
+        <li ><a class="userPosts" routerLink="/userManagement">Users</a></li>
+        <li ><a class="userPosts" routerLink="/posts">Posts</a></li>
+    </ul>
 </header>

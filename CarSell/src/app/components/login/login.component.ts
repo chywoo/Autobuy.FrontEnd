@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoginModel} from 'src/app/model/loginModel.model';
 import {AuthService} from "../../services/auth.service";
 import {LoginIF, Result, UserDetailIF} from "../../interfaces/restapi.interface";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UsersService} from "../../services/users.service";
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.auth.isLoggedIn().subscribe((result: Result) => {
       if (result.result == "OK") {
         alert("Already logged in");
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], {skipLocationChange: true});
       } else {
         localStorage.removeItem('userName');
         localStorage.removeItem('fullName');
@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
         console.error(result.message);
         alert("Login failed: " + result.message)
       }
+
     }, (error) => {
       console.error(error);
       alert("Fail to connect the server.\nPlease check the server.");

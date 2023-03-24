@@ -15,6 +15,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { MypostComponent } from './components/mypost/mypost.component';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
 import {LogoutComponent} from "./components/logout/logout.component";
+import {NavComponent} from "./components/nav/nav.component";
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -31,7 +32,9 @@ const routes: Routes = [
   {path:"editPost/:id", component:EditPostComponent},
   {path:"addPost", component:AddPostComponent},
   {path:"mypost" , component:MypostComponent},
-  {path:"postSearch", component: PostSeachComponent}
+  {path:"postSearch", component: PostSeachComponent},
+  {path:"nav",component:NavComponent},
+  {path:"**",component:HomeComponent}
 ];
 
 @NgModule({
