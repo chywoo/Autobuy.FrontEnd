@@ -15,6 +15,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { MypostComponent } from './components/mypost/mypost.component';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
 import {LogoutComponent} from "./components/logout/logout.component";
+import {CarDetailsComponent} from "./components/car-details/car-details.component";
 
 const routes: Routes = [
   {path:"",component:HomeComponent},

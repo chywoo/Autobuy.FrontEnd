@@ -5,7 +5,7 @@ import {Make} from 'src/app/model/make.model';
 import {HttpClient} from '@angular/common/http';
 import {HomeSearch} from 'src/app/model/home.model';
 import {MakesService} from "../../services/makes.service";
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CarsService} from "../../services/cars.service";
 import {CarIF} from "../../interfaces/restapi.interface";
 
@@ -28,12 +28,20 @@ export class HomeComponent implements OnInit {
               private homeService: HomeserviceService,
               private makersService: MakesService,
               private carService: CarsService,
-              private router: Router) {
+              private router: Router,
+              private activedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    if (this.activedRoute.snapshot.queryParams['refresh'] === "true") {
+      this.router.navigate(['/']);
+      window.location.reload();
+    }
+    else {
     this.showMakerList();
     this.showAllCarModelList();
+    }
+
   }
 
   private showMakerList() {

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         });
 
         alert("Login OK");
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], {queryParams: { refresh: 'true'}} );
       } else {
         console.error(result.message);
         alert("Login failed: " + result.message)
