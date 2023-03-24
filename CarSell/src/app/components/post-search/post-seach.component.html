@@ -7,12 +7,12 @@
 
 <div id="div">
 
-  <div class="wrap" >
+  <div class="wrap">
     <div class="container" >
-      <div class="col-md-3" *ngFor="let card of cards" style="display: inline-block;" >
+      <div class="col-md-3" *ngFor="let card of cards ; let i = index" id="{{card.postId}}"  (click)="SeeDetails(card.postId)" style="display: inline-block;"  >
         <img class="box-image" [src]="card.img" alt="Card image cap" style="height: 200px; width: 300px; border-radius: 10px; padding:10px" >
         <div class="title-flex">
-          <h3 class="box-title" style="padding:10px">{{card.title}} <Title></Title></h3>
+          <h3 class="box-title" style="padding:10px">{{card.title}}</h3>
         </div>
         <p class="description" style="padding:10px" >{{card.description}}</p>
       </div >

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from 'src/app/model/signUp.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from "../../services/users.service";
-import {UserIF} from "../../interfaces/restapi.interface";
+import {UserDetailIF, UserIF} from "../../interfaces/restapi.interface";
 
 
 @Component({
@@ -22,12 +22,13 @@ export class EditUserComponent implements OnInit {
     this.userName = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (this.userName != null) {
-      this.userService.getUserById(this.userName).subscribe((data: UserIF) => {
+      this.userService.getUserById(this.userName).subscribe((data: UserDetailIF) => {
         console.info(data);
         this.objUser.username = data.userName;
         this.objUser.name = data.fullName;
         this.objUser.email = data.email;
         this.objUser.password = data.password;
+        this.objUser.roleID = data.role.roleID;
       });
     } else {
       console.error("Wrong user name.");
@@ -40,7 +41,8 @@ export class EditUserComponent implements OnInit {
       userName: this.objUser.username,
       fullName: this.objUser.name,
       email: this.objUser.email,
-      password: this.objUser.password
+      password: this.objUser.password,
+      roleID: this.objUser.roleID
     }
 
     this.userService.updateUser(this.objUser.username, user).subscribe((result  ) => {

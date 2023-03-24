@@ -25,6 +25,7 @@ import { PostSeachComponent } from './components/post-search/post-seach.componen
 import {DeletePostComponent} from "./components/delete-post/delete-post.component";
 import { LogoutComponent } from './components/logout/logout.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { CarDetailsComponent } from './components/car-details/car-details.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     EditPostComponent,
     DeletePostComponent,
     PostSeachComponent,
-    LogoutComponent
+    LogoutComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -19,11 +19,14 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void{}
 
   public goToPage(pageName:string):void {
+    // @ts-ignore
     let user : UserIF = {
       fullName: this.objUser.name,
       userName: this.objUser.username,
       email: this.objUser.email,
-      password: this.objUser.password
+      password: this.objUser.password,
+      roleID: this.objUser.roleID // add userType to user object
+
     }
 
     console.log(user);
