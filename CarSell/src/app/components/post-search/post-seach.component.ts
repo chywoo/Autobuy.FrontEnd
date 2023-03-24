@@ -24,7 +24,7 @@ export class PostSeachComponent implements OnInit {
   objHome: HomeSearch = new HomeSearch();
   cards:Card[] = [];
   pageSize = 10;
-  page = 1;
+  page = 0;
 
   constructor(private route: ActivatedRoute, private postsService: PostsService) { }
 
@@ -62,6 +62,3 @@ export class PostSeachComponent implements OnInit {
     this.ngOnInit();
   }
 }
-
-
-
