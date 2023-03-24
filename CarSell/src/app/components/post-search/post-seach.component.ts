@@ -54,7 +54,7 @@ export class PostSeachComponent implements OnInit {
           description: posts[i].description.substring(0, 200),
           buttonText: 'Button',
           img: 'assets/img/' + posts[i].car.imageURL,
-          postId: this.objHome.postId
+          postId: posts[i].postID
         };
         this.cards.push(card);
       }

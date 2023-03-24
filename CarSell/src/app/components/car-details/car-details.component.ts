@@ -36,7 +36,8 @@ export class CarDetailsComponent implements OnInit {
         this.objPost.mileage = data.mileage;
         this.objPost.condition = data.condition;
         this.objPost.price = data.price;
-        this.objPost.description = data.description;       
+        this.objPost.description = data.description; 
+              
       });
     } else {
       console.error("Wrong user name.");
