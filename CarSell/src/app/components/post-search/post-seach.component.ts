@@ -4,10 +4,11 @@ import {ActivatedRoute} from "@angular/router";
 import {PostsService} from "../../services/posts.service";
 import {PostListIF} from "../../interfaces/restapi.interface";
 import {Observable} from "rxjs";
-
+import { Router } from '@angular/router';
 
 export interface Card {
   title: string,
+  postId: number,
   description: string,
   buttonText: string,
   img: string
@@ -25,8 +26,11 @@ export class PostSeachComponent implements OnInit {
   cards:Card[] = [];
   pageSize = 10;
   page = 0;
+  
 
-  constructor(private route: ActivatedRoute, private postsService: PostsService) { }
+  constructor(private route: ActivatedRoute, private postsService: PostsService,  private router_: Router) { }
+
+ 
 
   ngOnInit(): void {
     let maker=this.route.queryParams.subscribe(params => {
@@ -49,7 +53,8 @@ export class PostSeachComponent implements OnInit {
           title: posts[i].title.substring(0, 25),
           description: posts[i].description.substring(0, 200),
           buttonText: 'Button',
-          img: 'assets/img/' + posts[i].car.imageURL
+          img: 'assets/img/' + posts[i].car.imageURL,
+          postId: this.objHome.postId
         };
         this.cards.push(card);
       }
@@ -61,4 +66,12 @@ export class PostSeachComponent implements OnInit {
     this.page = pageEvent.pageIndex;
     this.ngOnInit();
   }
+
+   SeeDetails(id:number): void {
+    this.router_.navigate(['/carDetails' , `${id}`]);
+  }
+
 }
+//
+//carDetails
+//this.router.navigate(['/userManagement']);

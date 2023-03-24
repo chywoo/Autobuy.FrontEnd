@@ -1,0 +1,47 @@
+
+  <body>
+
+    <div class="testbox">
+      <form action="/">
+        <div class="banner">
+
+            <img src="/assets/img/AlphaRomeo_4C.jpeg" alt="image" style="width: 650px; height: 410px;opacity:0.8;filter:alpha(opacity=40); ">
+            <img src="/assets/img/AlphaRomeo_4C.jpeg" alt="image" style="width: 650px; height: 410px; opacity:0.8;filter:alpha(opacity=40); ">
+            <img src="/assets/img/AlphaRomeo_4C.jpeg" alt="image" style="width: 650px; height: 410px;opacity:0.8;filter:alpha(opacity=40); ">
+            
+            <h1>{{objPost.title}}</h1>
+        </div>  
+        <div class="item"> 
+          <div class="name-item">
+          
+            <input type="text" name="name" placeholder="Model" value="{{objPost.model}}" readonly="true"/>
+            <input type="text" name="name" placeholder="Year" value="{{objPost.year}}" readonly="true"/>
+          </div>
+          <div class="name-item">
+            <input type="text" name="name" placeholder="Mileage" value="{{objPost.mileage}} KM" readonly="true"/>
+            <input type="text" name="name" placeholder="Condition" value="{{objPost.condition}}" readonly="true"/>
+          </div>
+        </div>
+        <div class="item">
+            <input type="text" name="name" placeholder="Price" value="{{objPost.price}} CA" readonly="true"/>
+        </div>
+        <div class="item">
+          <textarea rows="5" id="description" name="description" value="{{objPost.description}}" readonly="true" ></textarea>
+        </div>
+        <div class="item">
+            <div class="name-item">
+              <input type="text" name="name" placeholder="Wheelbase" value="Wheelbase" readonly="true"/>
+              <input type="text" name="name" placeholder="Length" value="Length" readonly="true"/>
+            </div>
+            <div class="name-item">
+              <input type="text" name="name" placeholder="Power" value="Power" readonly="true"/>
+              <input type="text" name="name" placeholder="Displacement" value="Displacement" readonly="true"/>
+            </div>
+          </div>
+
+        <div class="btn-block">
+          <button type="submit" href="/">buy</button>
+        </div>
+      </form>
+    </div>
+  </body>
