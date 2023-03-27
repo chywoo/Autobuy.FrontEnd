@@ -13,11 +13,17 @@ export class Post {
   mileage: any = null;
   condition: any = null;
   carID: any = null;
+  displacement: any = null;
+  wheelbase: any = null;
+  length: any = null;
+  width: any = null;
+  height: any = null;
 
   constructor(postID?: number, make?: string, model?: string, username?: string,
               year?: string, price?: number, title?: string, description?: string,
               email?: string, mileage?: number,
-              condition?: string, carID?: number) {
+              condition?: string, carID?: number, displacement?: number, wheelbase?: number,
+              length?: number, width?: number, height?: number) {
     this.postID = postID;
     this.make = make;
     this.username = username;
@@ -29,6 +35,11 @@ export class Post {
     this.mileage = mileage;
     this.condition = condition;
     this.carID = carID;
+    this.displacement = displacement;
+    this.wheelbase = wheelbase;
+    this.length = length;
+    this.width = width;
+    this.height = height;
   }
 }
 

@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { Post } from 'src/app/model/post.model';
-import { PostsService } from 'src/app/services/posts.service';
-import { PostDetailIF } from 'src/app/interfaces/restapi.interface';
-
+import {Post} from 'src/app/model/post.model';
+import {PostsService} from 'src/app/services/posts.service';
+import {PostDetailIF} from 'src/app/interfaces/restapi.interface';
 
 
 @Component({
@@ -14,37 +13,30 @@ import { PostDetailIF } from 'src/app/interfaces/restapi.interface';
 
 
 export class CarDetailsComponent implements OnInit {
+  post: PostDetailIF | any;
 
   //myimage1: string = 'assets/img/' + id.car.imageURL;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postsService: PostsService) {
+    this.post = null;
   }
+
   //postId: number;
-  objPost:Post = new Post();
+
 
   ngOnInit(): void {
-    let id  = this.activatedRoute.snapshot.paramMap.get('id');
-
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
 
 
     if (id != null) {
       this.postsService.getPostById(parseInt(id)).subscribe((data: PostDetailIF) => {
         console.info(data);
-        this.objPost.title = data.title;
-        this.objPost.model = data.car.carModel;
-        this.objPost.year = data.year;
-        this.objPost.mileage = data.mileage;
-        this.objPost.condition = data.condition;
-        this.objPost.price = data.price;
-        this.objPost.description = data.description; 
-              
+        this.post = data;
+
       });
     } else {
       console.error("error");
     }
-    
-
-
   }
 }
 
