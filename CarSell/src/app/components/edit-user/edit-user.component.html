@@ -2,12 +2,12 @@
 <form id="msform" #userForm="ngForm">
   <fieldset>
     <h2 class="fs-title">Edit user account</h2>
+    <input type="text" name="username" disabled placeholder="User Name" class="form-control"
+           value="{{objUser.username}}" [(ngModel)]="objUser.username" ngModel>
     <input type="text" name="name" placeholder="Full Name" class="form-control"
            value="{{objUser.name}}" [(ngModel)]="objUser.name" ngModel>
     <input type="email" name="email" placeholder="Email" class="form-control"
            value="{{objUser.email}}" [(ngModel)]="objUser.email" ngModel>
-    <input type="text" name="username" placeholder="User Name" class="form-control"
-           value="{{objUser.username}}" [(ngModel)]="objUser.username" ngModel>
 
     <button type="button" class="btn btn-primary btn-lg"
             style="padding-left: 5.5rem; padding-right: 5.5rem;" (click)="btnSubmitWorks()">Submit
