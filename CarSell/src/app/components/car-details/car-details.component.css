@@ -1,8 +1,9 @@
 
       html, body {
-      min-height: 100%;
+      min-height: 80%;
       }
-      body, div, form, input, select, textarea, p { 
+
+      body, div, form, input, select, textarea, p,h1 { 
       padding: 0;
       margin: 0;
       outline: none;
@@ -11,35 +12,35 @@
       color: #666;
       line-height: 22px;
       }
-      h1 {
-      position: absolute;
-      font-size: 60px;
-      text-decoration:#333;
-      color: black;
-      width: 1000px;
-      height: 100px;
-      padding: 10px;
-      background-color: whitesmoke;
-      border-radius: 10%;
-      z-index: 2;
-      clip-path: polygon(
-      1.1% 6.1%,
-       100% 0%,
-      98.67% 44.75%,
-      94.5% 97.97%,
-      1.92% 100.35%
-      );
+      body{
+            padding-top: 60px;
       }
+      h1 {
+      font-size: 30px;
+      text-decoration:#333;
+      color:black;
+      width: 10px;
+      height: 10px;
+      padding: 10px;
+    
+      }
+      .CarTitle{
+            font-size: 30px;  
+            width: auto;
+            height: auto;
+      }
+      
       .testbox {
       display: flex;
       justify-content: center;
       align-items: center;
       height: inherit;
-      padding: 20px;
+      padding: 50px;
       
       }
       form {
-      width: 100%;
+      margin-top: 10px;
+      width: 40%;
       padding: 20px;
       border-radius: 6px;
       background: #fff;
@@ -47,8 +48,7 @@
       }
       .banner {
       position: relative;
-      height: 410px;
-      /*background-image: url("C:\Users\rapha\OneDrive\Documentos\GitHub\FrontEnd\CarSell\src\assets\img\AlphaRomeo_4C.jpeg"); */
+      height: 220px;
       display: flex;
       justify-content: center;
       align-items: center;

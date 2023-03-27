@@ -1,34 +1,4 @@
-/* *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: black;
 
-}
-header{
-    display:flex;
-    justify-content: space-between;
-    align-items: right;
-    padding: 10px 5%;
-}
-#navbarUl li{
-    display: inline;
-    padding: 0px 10px;
-    list-style: none;
-}
-#navbarUl li a{
-    transition:  all 0.3s ease 0s;
-    color: white;
-    text-decoration: none;
-}
-#navbarUl li a:hover{
-    color: blue;
-}
-.userPosts{
-    background-color: red;
-    padding: 5px 10px ;
-}
- */
  @import url(https://fonts.googleapis.com/css?family=Audiowide);
 
  *{
@@ -44,6 +14,7 @@ header{
     align-items: center;
     padding: 10px 5%;
 }
+
 #navbarUl li{
     display: inline;
     padding: 0px 10px;

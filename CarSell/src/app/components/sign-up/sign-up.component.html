@@ -4,52 +4,6 @@
 		  <h2 class="fs-title">Create your account</h2>
 		  <!--Name-->
 
-<!-- 
-		   <div>
-
-			<mat-form-field appearance="fill" >
-				<mat-label>Input</mat-label>
-				<input matInput name="name" placeholder="Full Name" class="form-control" required minlength="4" [(ngModel)]="objUser.name" #name="ngModel" ngModel>
-			  </mat-form-field>
-	
-			  <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">
-				<p *ngIf="name.errors?.['required']" [ngClass]="'text-danger'" >
-					 Name is required!
-				  </p>
-				  <small *ngIf="name.errors?.['minlength']" [ngClass]="'text-danger'">
-					Name must be at least 4 characters long!
-				  </small>
-			  </div>  
-		   </div>
-			<div>
-				<mat-form-field appearance="fill">
-					<mat-label>Roles</mat-label>
-					<mat-select name="roleID"  required [(ngModel)]="objUser.roleID" #roleID="ngModel" ngModel>
-					  <mat-option value="one">User</mat-option>
-					  <mat-option value="two">Seller</mat-option>
-					  <mat-option value="two">Admin</mat-option>
-					</mat-select>
-				</mat-form-field>
-				 
-				  <div *ngIf="roleID.invalid && (roleID.dirty || roleID.touched)" class="alert">
-					<p *ngIf="roleID.errors?.['required']" [ngClass]="'text-danger'">
-					  User Role is Required
-					</p>
-				  </div>
-			</div> -->
-		  
-
-		  <!--<input type="text" name="name" placeholder="Full Name" class="form-control" required minlength="4" [(ngModel)]="objUser.name" #name="ngModel" ngModel/>
-		  <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">
-			<p *ngIf="name.errors?.['required']" [ngClass]="'text-danger'" >
-				 Name is required!
-			  </p>
-			  <small *ngIf="name.errors?.['minlength']" [ngClass]="'text-danger'">
-				Name must be at least 4 characters long!
-			  </small>
-		  </div>-->
-
-
 		  <input type="text" name="username" placeholder="User Name"class="form-control" required minlength="2"[(ngModel)]="objUser.username" #username="ngModel" ngModel/>
 		  <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">
 			<p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
@@ -82,7 +36,7 @@
 			<div [hidden]="!passwordAgain.errors?.['pattern']" [ngClass]="'text-danger'"> Password does not match.</div>
 		  </div>
 
-		  <label>Please choose your Role</label>
+		  <p>Please choose your Role</p>
        <select name="roleID"  class="form-control" placeholder="Role" required [(ngModel)]="objUser.roleID" #roleID="ngModel" ngModel>
 		<option selected disabled value="Select the role"> Select the role </option>
 		<option value="1">User</option>
@@ -91,10 +45,9 @@
       </select>
       <div *ngIf="roleID.invalid && (roleID.dirty || roleID.touched)" class="alert">
         <p *ngIf="roleID.errors?.['required']" [ngClass]="'text-danger'">
-          User Type is Required
+          Role is Required
         </p>
       </div>
-
 		  <button type="button" class="btn btn-primary btn-lg"
 		  style="padding-left: 5.5rem; padding-right: 5.5rem;"(click)="goToPage('registationConfirmation')" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>

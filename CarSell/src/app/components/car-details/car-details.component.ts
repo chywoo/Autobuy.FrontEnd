@@ -40,7 +40,7 @@ export class CarDetailsComponent implements OnInit {
               
       });
     } else {
-      console.error("Wrong user name.");
+      console.error("error");
     }
     
 
