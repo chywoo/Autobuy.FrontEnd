@@ -18,19 +18,24 @@ export class LoginComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit(): void {
-    this.auth.isLoggedIn().subscribe((result: Result) => {
-      if (result.result == "OK") {
-        alert("Already logged in");
-        this.router.navigate(['/'], {skipLocationChange: true});
-      } else {
-        localStorage.removeItem('userName');
-        localStorage.removeItem('fullName');
-        localStorage.removeItem('roleID');
-        localStorage.removeItem('roleName');
-      }
-    }, (error) => {
-      //console.error(error);
-    });
+    if (localStorage.getItem('in_progress_login') != 'true') {
+      this.auth.isLoggedIn().subscribe((result: Result) => {
+        if (result.result == "OK") {
+          alert("Already logged in");
+          this.router.navigate(['/'], {skipLocationChange: true});
+        } else {
+          localStorage.removeItem('userName');
+          localStorage.removeItem('fullName');
+          localStorage.removeItem('roleID');
+          localStorage.removeItem('roleName');
+          localStorage.removeItem('in_progress_login');
+        }
+      }, (error) => {
+        //console.error(error);
+      });
+    } else {
+      localStorage.removeItem('in_progress_login');
+    }
   }
 
   btnLogin() {
@@ -49,6 +54,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('fullName', result.fullName);
           localStorage.setItem('roleID', result.role.roleID.toString());
           localStorage.setItem('roleName', result.role.roleName);
+          localStorage.setItem('in_progress_login', 'true');
         });
 
         alert("Login OK");

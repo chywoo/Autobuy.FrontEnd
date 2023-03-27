@@ -20,6 +20,8 @@ export class LogoutComponent implements OnInit {
 
       alert("You are logged out");
 
+      // prevent infinite loop
+      localStorage.setItem('in_progress_login', 'true');
       this.router.navigate(['/']);
     }, error => {
       alert("Error: " + error);

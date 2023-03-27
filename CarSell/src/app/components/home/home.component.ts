@@ -33,8 +33,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.activedRoute.snapshot.queryParams['refresh'] === "true") {
+    // prevent infinite loop
+    if (localStorage.getItem('in_progress_login') == 'true') {
       this.router.navigate(['/']);
+      localStorage.removeItem('in_progress_login');
       window.location.reload();
     }
     else {
