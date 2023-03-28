@@ -3,6 +3,11 @@ export interface  CarIF {
   carModel: string,
   makeID: number,
   imageURL: string,
+  displacement: number,
+  wheelbase: number,
+  length: number,
+  width: number,
+  height: number,
   make: MakeIF
 }
 
@@ -73,11 +78,6 @@ export interface PostDetailIF {
   carID: number,
   author: UserIF,  // This field is used in the GET method
   car: CarIF // This field is used in the GET method
-  displacement: number,
-  wheelbase: number,
-  length: number,
-  width: number,
-  height: number
 }
 
 export interface PostListIF {
