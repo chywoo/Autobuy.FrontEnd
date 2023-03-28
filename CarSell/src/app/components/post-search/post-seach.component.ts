@@ -26,11 +26,12 @@ export class PostSeachComponent implements OnInit {
   cards:Card[] = [];
   pageSize = 10;
   page = 0;
-  
+  total = 0;
+
 
   constructor(private route: ActivatedRoute, private postsService: PostsService,  private router_: Router) { }
 
- 
+
 
   ngOnInit(): void {
     let maker=this.route.queryParams.subscribe(params => {
@@ -45,6 +46,7 @@ export class PostSeachComponent implements OnInit {
     this.postsService.searchPostList(this.pageSize, this.page,  this.objHome.make, this.objHome.model, this.objHome.maxPrice, this.objHome.year)
       .subscribe( (data:PostListIF) => {
       this.cards = [];
+      this.total = data.total;
 
       let posts = data.posts;
 
