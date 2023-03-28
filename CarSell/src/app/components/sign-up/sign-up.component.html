@@ -1,19 +1,37 @@
 
 	<form id="msform" #userForm="ngForm" >
 		<fieldset>
-		  <h2 class="fs-title">Create your account</h2>
-		  <!--Name-->
+		  <h2 class="fs-title">Create your account</h2><br>
 
-		  <input type="text" name="username" placeholder="User Name"class="form-control" required minlength="2"[(ngModel)]="objUser.username" #username="ngModel" ngModel/>
+		  <label>Full Name</label>
+		  <input type="text" name="name"class="form-control" required minlength="2"[(ngModel)]="objUser.name" #name="ngModel" ngModel/>
+		  <!--Validation erros-->
+		  <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">
+			<p *ngIf="name.errors?.['required']" [ngClass]="'text-danger'" >
+				 Name is required!
+			  </p>
+			  <small *ngIf="name.errors?.['minlength']" [ngClass]="'text-danger'">
+				User name must be at least 2 characters long!
+			  </small>
+		  </div>
+
+		  <!--UserName-->
+		  <label>UserName</label>
+		  <input type="text" name="username"class="form-control" required minlength="2"[(ngModel)]="objUser.username" #username="ngModel" ngModel/>
+		  <!--Validation erros-->
 		  <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">
 			<p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
-				 User Name is required!
+				 UserName is required!
 			  </p>
 			  <small *ngIf="username.errors?.['minlength']" [ngClass]="'text-danger'">
 				User name must be at least 2 characters long!
 			  </small>
 		  </div>
-		  <input type="email" name="email" placeholder="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel />
+
+		   <!--Email-->
+		   <label>Email</label>
+		  <input type="email" name="email"  class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel />
+		  <!--Validation erros-->
 		  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
 			<p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
 				Email is Required
@@ -22,34 +40,41 @@
 				Email is invalid!
 			</div>
 		  </div>
-		  <input type="password" name="pass" placeholder="Password" class="form-control"  required [(ngModel)]="objUser.password" #password="ngModel"  ngModel/>
+		  <!--password-->
+		  <label>Password</label>
+		  <input type="password" name="pass" class="form-control"  required [(ngModel)]="objUser.password" #password="ngModel"  ngModel/>
+		  <!--Validation erros-->
 		  <div *ngIf="password.invalid && (password.dirty || password.touched)" >
 			<p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
 		      Password is required!
 			</p>
 		  </div>
-		  <input type="password" name="passwordAgain" placeholder="Password" class="form-control" pattern="{{password.value}}" required [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
+		   <!--password again-->
+		   <label>Confirm Password</label>
+		  <input type="password" name="passwordAgain" class="form-control" pattern="{{password.value}}" required [(ngModel)]="objUser.passwordAgain" #passwordAgain="ngModel"  ngModel/>
+		  <!--Validation erros-->
 		  <div *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched)" >
 			<p *ngIf="passwordAgain.errors?.['required']" [ngClass]="'text-danger'" >
 		      Password is required!
 			</p>
 			<div [hidden]="!passwordAgain.errors?.['pattern']" [ngClass]="'text-danger'"> Password does not match.</div>
 		  </div>
-
-		  <p>Please choose your Role</p>
+		 <!--Roles-->
+		  <label>Please choose your Role</label>
        <select name="roleID"  class="form-control" placeholder="Role" required [(ngModel)]="objUser.roleID" #roleID="ngModel" ngModel>
 		<option selected disabled value="Select the role"> Select the role </option>
 		<option value="1">User</option>
         <option value="2">Seller</option>
         <option value="3">Admin</option>
       </select>
-      <div *ngIf="roleID.invalid && (roleID.dirty || roleID.touched)" class="alert">
+      <!--Validation erros-->
+	  <div *ngIf="roleID.invalid && (roleID.dirty || roleID.touched)" class="alert">
         <p *ngIf="roleID.errors?.['required']" [ngClass]="'text-danger'">
           Role is Required
         </p>
       </div>
 		  <button type="button" class="btn btn-primary btn-lg"
-		  style="padding-left: 5.5rem; padding-right: 5.5rem;"(click)="goToPage('registationConfirmation')" [disabled]="!userForm.valid">Submit</button>
+		  style="padding-left: 5.5rem; padding-right: 5.5rem; width: 320px; height: 50px;"(click)="goToPage('registationConfirmation')" [disabled]="!userForm.valid">Submit</button>
 		</fieldset>
 	  </form>
 	 <div class="card-footer">

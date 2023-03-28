@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { MatTableModule } from '@angular/material/table'
@@ -26,6 +25,7 @@ import {DeletePostComponent} from "./components/delete-post/delete-post.componen
 import { LogoutComponent } from './components/logout/logout.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CarDetailsComponent } from './components/car-details/car-details.component';
+import {ConfirmationpageComponent} from './components/confirmationpage/confirmationpage.component';
 
 
 @NgModule({
@@ -34,7 +34,6 @@ import { CarDetailsComponent } from './components/car-details/car-details.compon
     HomeComponent,
     NavComponent,
     SignUpComponent,
-    DialogBoxComponent,
     LoginComponent,
     EditUserComponent,
     DeleteUserComponent,
@@ -46,7 +45,8 @@ import { CarDetailsComponent } from './components/car-details/car-details.compon
     DeletePostComponent,
     PostSeachComponent,
     LogoutComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    ConfirmationpageComponent
   ],
   imports: [
     BrowserModule,

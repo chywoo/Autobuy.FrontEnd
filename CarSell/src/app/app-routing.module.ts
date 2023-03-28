@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import * as path from 'path';
 import { HomeComponent } from './components/home/home.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
@@ -16,12 +15,13 @@ import { MypostComponent } from './components/mypost/mypost.component';
 import { PostSeachComponent } from './components/post-search/post-seach.component';
 import {LogoutComponent} from "./components/logout/logout.component";
 import {CarDetailsComponent} from "./components/car-details/car-details.component";
+import { ConfirmationpageComponent } from './components/confirmationpage/confirmationpage.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"home",component:HomeComponent},
   {path:"sign-up",component:SignUpComponent},
-  {path:"registationConfirmation",component:DialogBoxComponent},
+  {path:"registationConfirmation",component:ConfirmationpageComponent},
   {path:"login",component:LoginComponent},
   {path:"logout",component:LogoutComponent},
   {path:"userManagement",component:UserManagementComponent},
