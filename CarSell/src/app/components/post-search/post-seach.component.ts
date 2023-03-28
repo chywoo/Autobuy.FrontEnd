@@ -24,17 +24,14 @@ export class PostSeachComponent implements OnInit {
 
   objHome: HomeSearch = new HomeSearch();
   cards:Card[] = [];
-  pageSize = 10;
+  pageSize = 8;
   page = 0;
   total = 0;
 
-
   constructor(private route: ActivatedRoute, private postsService: PostsService,  private router_: Router) { }
 
-
-
   ngOnInit(): void {
-    let maker=this.route.queryParams.subscribe(params => {
+    let make=this.route.queryParams.subscribe(params => {
       this.objHome.make = params['make'];
       this.objHome.model = params['model'];
       this.objHome.maxPrice = params['maxPrice'];
@@ -74,6 +71,3 @@ export class PostSeachComponent implements OnInit {
   }
 
 }
-//
-//carDetails
-//this.router.navigate(['/userManagement']);
