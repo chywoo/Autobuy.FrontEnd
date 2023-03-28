@@ -17,7 +17,7 @@
               <!-- <input type="text" id="form3Example3" class="form-control form-control-lg"
                 placeholder="Enter your User Name" required [(ngModel)]="objLoginModel.username" #username="ngModel" ngModel/> -->
                 <input type="text" name="username" placeholder="User Name"class="form-control" required minlength="2"[(ngModel)]="objLoginModel.username" #username="ngModel" ngModel/>
-                <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">		
+                <div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">
                   <p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
                      Please input your username!
                     </p>
@@ -26,14 +26,14 @@
             <!-- Password input -->
             <div class="form-outline mb-3">
               <input type="password" name="pass" placeholder="Password" class="form-control"  required [(ngModel)]="objLoginModel.password" #password="ngModel"  ngModel/>
-              <div *ngIf="password.invalid &&(password.dirty||password.touched)"class="alert">		
+              <div *ngIf="password.invalid &&(password.dirty||password.touched)"class="alert">
                 <p *ngIf="password.errors?.['required']" [ngClass]="'text-danger'" >
                    Please input your password!
                   </p>
                 </div>
             </div>
 
-  
+
             <div class="text-center text-lg-start mt-4 pt-2">
               <button type="button" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="btnLogin()"[disabled]="!loginForm.valid">Login</button>
@@ -44,8 +44,4 @@
         </div>
       </div>
     </div>
-    <div class="card-footer">
-      {{loginForm.value | json}}
-      </div>
-
   </section>
