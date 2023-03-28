@@ -5,35 +5,32 @@
       <p class="CarTitle">{{this.post.title}}</p><br>
     </div>
     <div class="banner">
-
-      <img src="/assets/img/{{this.post.car.imageURL}}" alt="image" style="width: 560px; height: 220px;">
+      <img src="/assets/img/{{this.post.car.imageURL}}" alt="image" style="width: 570px; height: 400px;">
     </div>
-
     <div class="item">
       <div class="name-item">
-
-        <input type="text" name="name" placeholder="Model" value="{{this.post.car.carModel}}" readonly="true"/>
-        <input type="text" name="name" placeholder="Year" value="{{this.post.year}}" readonly="true"/>
+        <input type="text" name="name" placeholder="Model" value="Model: {{this.post.car.carModel}}" readonly="true"/>
+        <input type="text" name="name" placeholder="Year" value="Year: {{this.post.year}}" readonly="true"/>
       </div>
       <div class="name-item">
-        <input type="text" name="name" placeholder="Mileage" value="{{this.post.mileage}} KM" readonly="true"/>
-        <input type="text" name="name" placeholder="Condition" value="{{this.post.condition}}" readonly="true"/>
+        <input type="text" name="name" placeholder="Mileage" value="Mileage: {{this.post.mileage}} KM" readonly="true"/>
+        <input type="text" name="name" placeholder="Condition" value="Condition: {{this.post.condition}}" readonly="true"/>
       </div>
     </div>
     <div class="item">
-      <input type="text" name="name" placeholder="Price" value="{{this.post.price}} CA" readonly="true"/>
+      <input type="text" name="name" placeholder="Price" value="Price: ${{this.post.price}}" readonly="true"/>
     </div>
     <div class="item">
       <textarea rows="5" id="description" name="description" value="{{this.post.description}}" readonly="true"></textarea>
     </div>
     <div class="item">
       <div class="name-item">
-        <input type="text" name="name" placeholder="Wheelbase" value="{{this.post.car.wheelbase}}" readonly="true"/>
-        <input type="text" name="name" placeholder="Length" value="Length" readonly="true"/>
+        <input type="text" name="name" placeholder="Wheelbase" value="Wheelbase: {{this.post.car.wheelbase}}cm" readonly="true"/>
+        <input type="text" name="name" placeholder="Length" value="Length: {{this.post.car.length}}" readonly="true"/>
       </div>
       <div class="name-item">
-        <input type="text" name="name" placeholder="Height" value="{{this.post.car.height}}" readonly="true"/>
-        <input type="text" name="name" placeholder="Displacement" value="{{this.post.car.displacement}}" readonly="true"/>
+        <input type="text" name="name" placeholder="Height" value="Height: {{this.post.car.height}}cm" readonly="true"/>
+        <input type="text" name="name" placeholder="Displacement" value="Displacement: {{this.post.car.displacement}}cc" readonly="true"/>
       </div>
     </div>
     <div class="btn-block">
