@@ -54,10 +54,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('fullName', result.fullName);
           localStorage.setItem('roleID', result.role.roleID.toString());
           localStorage.setItem('roleName', result.role.roleName);
-          localStorage.setItem('in_progress_login', 'true');
         });
 
         alert("Login OK");
+        localStorage.setItem('in_progress_login', 'true');
         this.router.navigate(['/']);
       } else {
         console.error(result.message);
