@@ -7,6 +7,7 @@ body {
   background: var(--light-bg);
   font-family: "Space Grotesk", sans-serif;
   color: var(--dark);
+  text-align: center;
 }
 
 h3 {
@@ -31,10 +32,9 @@ p {
   -webkit-line-clamp: 3;
 
 }
-
 .wrap {
+  text-align: center;
   display: inline-block;
-  justify: space-between;
   align-items: stretch;
   width: 100%;
   gap: 24px;
