@@ -5,7 +5,7 @@
     </header>
     <main>
 <form #homeForm="ngForm" id="formHome" >
-  <!---->
+  <!-- Make Combo box -->
   <ul id="navbarUl" >
     <li>
       <div class="col-md-3" style="width: 200px; padding: 10px;">
@@ -16,6 +16,7 @@
       </div>
     </li>
     <li>
+      <!-- Model Combo box -->
       <div class="col-md-3" style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Model</label>
         <select class="form-control" id="model" name="mode" class="form-control" required  [(ngModel)]="objHome.model" #model.value="ngModel" ngModel>
@@ -24,6 +25,7 @@
       </div>
     </li>
     <li>
+      <!-- Max Price Combo box -->
       <div class="col-md-3" style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Max Price</label>
         <select class="form-control" id="maxPrice" name="maxPrice" class="form-control" required  [(ngModel)]="objHome.maxPrice" #maxPrice.value="ngModel" ngModel>
@@ -32,6 +34,7 @@
       </div>
     </li>
     <li>
+      <!-- Min Year Combo box -->
       <div class="col-md-3"style="width: 200px; padding: 10px;">
         <label for="make" class="control-label" style="color: white;">Min Year</label>
         <select class="form-control" id="year" name="year" class="form-control" required  [(ngModel)]="objHome.year" #year.value="ngModel" ngModel>
@@ -45,6 +48,5 @@
   </ul>
 </form>
 </main>
-
 </body>
 
