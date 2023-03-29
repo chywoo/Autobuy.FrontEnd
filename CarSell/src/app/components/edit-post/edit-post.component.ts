@@ -47,6 +47,7 @@ export class EditPostComponent implements OnInit {
     }
 
   }
+  
 
   btnSubmitWorks() {
     console.log("Call update");
