@@ -9,20 +9,32 @@ table {
   button{
     margin: 4px;
   }
-  a{
-  text-decoration: none;
-  border: none;
-  margin: 20px;
-  padding: 10px;
-  height: 40px;
-  width: 300px;
-  color: white;
-  font-family: "montserrat",sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  background-color:  green ;
-  border-radius: 10%;
-} 
+  .button {
+    width: 50%;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    background:#4169E1;
+    border-radius: 5px;
+    color: white;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  
+  }
+
+  .buttons a { 
+    text-decoration: none;    
+  }
+  
+  .buttons {
+    display: flex;  
+  }
+
+  .button:hover{
+      background: #6495ED;
+  }
 h1{
   font-size: 30px;
 }

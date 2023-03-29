@@ -15,14 +15,9 @@ import {PostDetailIF} from 'src/app/interfaces/restapi.interface';
 export class CarDetailsComponent implements OnInit {
   post: PostDetailIF | any;
 
-  //myimage1: string = 'assets/img/' + id.car.imageURL;
-
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postsService: PostsService) {
     this.post = null;
   }
-
-  //postId: number;
-
 
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.paramMap.get('id');

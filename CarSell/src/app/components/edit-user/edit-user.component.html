@@ -2,15 +2,38 @@
 <form id="msform" #userForm="ngForm">
   <fieldset>
     <h2 class="fs-title">Edit user account</h2>
-    <input type="text" name="username" disabled placeholder="User Name" class="form-control"
-           value="{{objUser.username}}" [(ngModel)]="objUser.username" ngModel>
-    <input type="text" name="name" placeholder="Full Name" class="form-control"
-           value="{{objUser.name}}" [(ngModel)]="objUser.name" ngModel>
-    <input type="email" name="email" placeholder="Email" class="form-control"
-           value="{{objUser.email}}" [(ngModel)]="objUser.email" ngModel>
+    
+    
+    <!--User Name-->
+    <input type="text" name="username" disabled placeholder="Username" class="form-control"
+           value="{{objUser.username}}"  [(ngModel)]="objUser.username" ngModel>
+   
+           <input type="text" name="name" class="form-control"
+           value="{{objUser.name}}" minlength="2" required [(ngModel)]="objUser.name" #name="ngModel" ngModel>
+           
+           <div *ngIf="name.invalid &&(name.dirty||name.touched)"class="alert">
+              <p *ngIf="name.errors?.['required']" [ngClass]="'text-danger'" >
+                      Name is required!
+                </p>
+                <small *ngIf="name.errors?.['minlength']" [ngClass]="'text-danger'">
+                     Name must be at least 2 characters long!
+                </small>
+         </div>
+           
+    <!--Email-->
+           <input type="email" name="email" placeholder="Email" class="form-control"
+           value="{{objUser.email}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required [(ngModel)]="objUser.email"  #email="ngModel"  ngModel>
 
+           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+              <p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
+                     Email is Required
+              </p>
+              <div [hidden]="!email.errors?.['pattern']" [ngClass]="'text-danger'">
+                     Email is invalid!
+              </div>
+         </div>  
     <button type="button" class="btn btn-primary btn-lg"
-            style="padding-left: 5.5rem; padding-right: 5.5rem;" (click)="btnSubmitWorks()">Submit
+            style="padding-left: 5.5rem; padding-right: 5.5rem;" (click)="btnSubmitWorks()" [disabled]="!userForm.valid">Submit
     </button>
 
     <button type="button" class="btn btn-danger btn-lg"

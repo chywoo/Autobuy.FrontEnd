@@ -36,7 +36,7 @@
 
     <ng-container matColumnDef="car_description">
       <th mat-header-cell *matHeaderCellDef> Description</th>
-      <td mat-cell *matCellDef="let element"> {{element.car_description}} </td>
+      <td mat-cell *matCellDef="let element" style=""> {{element.car_description}} </td>
     </ng-container>
 
     <ng-container matColumnDef="post_author">
@@ -48,9 +48,11 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action</th>
       <td mat-cell *matCellDef="let element">
-
-        <a [routerLink]="['/editPost',element.post_id]">Edit </a>
-        <a [routerLink]="['/deletePost',element.post_id]">Delete </a>
+<div class="buttons">
+  <a target="blank" class="button" type="button" [routerLink]="['/editPost',element.post_id]">Edit </a>
+  <a target="blank" class="button" type="button" [routerLink]="['/deletePost',element.post_id]">Delete </a>
+</div>
+        
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,24 +1,40 @@
 table {
     width: 100%;
+   
+      table-layout:fixed;
+    
   }
   main{
     padding-top: 10px;
     margin: 0 auto;
     max-width: 1248px;
   }
-  a{
-    text-decoration: none;
-    border: none;
-    margin: 10px;
-    padding: 10px;
-    height: 40px;
-    width: 200px;
+  .button {
+    width: 50%;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    background:#4169E1;
+    border-radius: 5px;
     color: white;
-    font-weight: bold;
-    font-family: "montserrat",sans-serif;
-    text-transform: uppercase;
-    background-color:  green ;
-    border-radius: 10%;}
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  
+  }
+
+  .buttons a { 
+    text-decoration: none;    
+  }
+  
+  .buttons {
+    display: flex;  
+  }
+
+  .button:hover{
+      background: #6495ED;
+  }
 h1{
   font-size: 30px;
 }

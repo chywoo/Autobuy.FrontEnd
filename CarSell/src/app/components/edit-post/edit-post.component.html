@@ -10,6 +10,7 @@
 		   <input type="text" id="make" name="make" placeholder="Make" class="form-control" required  ngModel [(ngModel)]="objPost.make" #make="ngModel" />
 		   <input type="text" id="model" name="model" placeholder="Model" class="form-control" required  ngModel [(ngModel)]="objPost.model" #model="ngModel"  />
 		</div>
+		<label>Maker</label>
 
 		<!--Car year color-->
 		 <div class="item">
@@ -40,13 +41,7 @@
 		  <textarea rows="5" id="description" name="description" class="form-control" ngModel [(ngModel)]="objPost.description" #description="ngModel"></textarea>
 	   </div>
 	   <!--Seller information-->
-	   <h5>Please input your Information</h5>
-	   <div class="item">
-		 <div class="name-item">
-		   <input type="text" name="username" id="username" placeholder="User Name" class="form-control" required  ngModel [(ngModel)]="objPost.username" #username="ngModel" />
-		   <input type="email" name="email" id="email" placeholder="Email" class="form-control" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  ngModel [(ngModel)]="objPost.email" #email="ngModel"  />
-		  </div>
-	   </div>
+	   
 
 	<!--Erros-->
 	   <div *ngIf="make.invalid &&(make.dirty||make.touched)"class="alert">
@@ -64,33 +59,16 @@
 			   Year is required!
 			</p>
 		</div>
-		<!-- <div *ngIf="color.invalid &&(color.dirty||color.touched)"class="alert">
-		  <p *ngIf="color.errors?.['required']" [ngClass]="'text-danger'" >
-			   Color is required!
-			</p>
-		</div>  -->
+	
 		<div *ngIf="mileage.invalid &&(mileage.dirty||mileage.touched)"class="alert">
 		  <p *ngIf="year.errors?.['required']" [ngClass]="'text-danger'" >
 		   Mileage(km)  is required!
 			</p>
 		</div>
-		<div *ngIf="username.invalid &&(username.dirty||username.touched)"class="alert">
-		  <p *ngIf="username.errors?.['required']" [ngClass]="'text-danger'" >
-			   User Name is required!
-			</p>
-		</div>
-		<div *ngIf="email.invalid &&(email.dirty||email.touched)"class="alert">
-		  <p *ngIf="email.errors?.['required']" [ngClass]="'text-danger'" >
-			   Email is required!
-			</p>
-		</div>
-		<div [hidden]="!email.errors?.['pattern']" [ngClass]="'text-danger'">
-					Email is invalid!
-				</div>
+	
 
 	   <!--Button-->
 	   <div class="btn-block">
-<!--		 <button type="submit"  (click)="btnSubmitWorks()" [disabled]="!postForm.valid">Submit</button>-->
        <button type="submit"  (click)="btnSubmitWorks()">Submit</button>
 	   </div>
 		 </div>

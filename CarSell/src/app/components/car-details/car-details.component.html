@@ -2,37 +2,46 @@
 <div class="testbox">
   <form action="/">
     <div class="title">
+      <!--Title -->
       <p class="CarTitle">{{this.post.title}}</p><br>
     </div>
+     <!--Img -->
     <div class="banner">
       <img src="/assets/img/{{this.post.car.imageURL}}" alt="image" style="width: 570px; height: 400px;">
     </div>
+     <!--Model and Year -->
     <div class="item">
       <div class="name-item">
         <input type="text" name="name" placeholder="Model" value="Model: {{this.post.car.carModel}}" readonly="true"/>
         <input type="text" name="name" placeholder="Year" value="Year: {{this.post.year}}" readonly="true"/>
       </div>
+      <!--Mileage and Condition -->
       <div class="name-item">
         <input type="text" name="name" placeholder="Mileage" value="Mileage: {{this.post.mileage}} KM" readonly="true"/>
         <input type="text" name="name" placeholder="Condition" value="Condition: {{this.post.condition}}" readonly="true"/>
       </div>
     </div>
+      <!--Price -->
     <div class="item">
       <input type="text" name="name" placeholder="Price" value="Price: ${{this.post.price}}" readonly="true"/>
     </div>
+      <!--Description -->
     <div class="item">
       <textarea rows="5" id="description" name="description" value="{{this.post.description}}" readonly="true"></textarea>
     </div>
+    <!--Wheelbase and Length -->
     <div class="item">
       <div class="name-item">
         <input type="text" name="name" placeholder="Wheelbase" value="Wheelbase: {{this.post.car.wheelbase}}cm" readonly="true"/>
         <input type="text" name="name" placeholder="Length" value="Length: {{this.post.car.length}}" readonly="true"/>
       </div>
+       <!--Height and Displacement-->
       <div class="name-item">
         <input type="text" name="name" placeholder="Height" value="Height: {{this.post.car.height}}cm" readonly="true"/>
         <input type="text" name="name" placeholder="Displacement" value="Displacement: {{this.post.car.displacement}}cc" readonly="true"/>
       </div>
     </div>
+     <!--Back button -->
     <div class="btn-block">
       <button type="submit" onclick="window.history.back()" >BACK</button>
     </div>

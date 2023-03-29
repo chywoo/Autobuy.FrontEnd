@@ -47,6 +47,7 @@ export class EditUserComponent implements OnInit {
 
     this.userService.updateUser(this.objUser.username, user).subscribe((result  ) => {
       if (result.result == "OK" ) {
+        alert("Information updated successfully")
         this.router.navigate(['/userManagement']);
       } else {
         alert("Update user failed.");
