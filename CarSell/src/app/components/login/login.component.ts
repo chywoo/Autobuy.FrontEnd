@@ -48,17 +48,17 @@ export class LoginComponent implements OnInit {
       if (result.result == "OK") {
         console.debug("Login OK");
         // store user name in local storage
-        localStorage.setItem('userName', user.userName);
 
         this.usersService.getUserById(user.userName).subscribe((result: UserDetailIF) => {
+          localStorage.setItem('userName', result.userName);
           localStorage.setItem('fullName', result.fullName);
           localStorage.setItem('roleID', result.role.roleID.toString());
           localStorage.setItem('roleName', result.role.roleName);
-        });
 
-        alert("Login OK");
-        localStorage.setItem('in_progress_login', 'true');
-        this.router.navigate(['/']);
+          alert("Login OK");
+          localStorage.setItem('in_progress_login', 'true');
+          this.router.navigate(['/']);
+        });
       } else {
         console.error(result.message);
         alert("Login failed: " + result.message)
