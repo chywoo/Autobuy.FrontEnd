@@ -91,8 +91,10 @@ export class PostManagementComponent implements OnInit {
         this.dataSource.push(post);
       }
     }, error => {
-      alert("You are not authorized to access this page");
-      this.router.navigate(['/']);
+      if (error.status == 403) {
+        alert("You are not authorized to access this page");
+        this.router.navigate(['/']);
+      }
     });
   }
 
