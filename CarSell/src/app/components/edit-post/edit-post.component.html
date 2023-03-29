@@ -7,18 +7,21 @@
 		 <!--Car make and model-->
 		 <div class="item">
 		   <div class="name-item">
-		   <input type="text" id="make" name="make" placeholder="Make" class="form-control" required  ngModel [(ngModel)]="objPost.make" #make="ngModel" />
-		   <input type="text" id="model" name="model" placeholder="Model" class="form-control" required  ngModel [(ngModel)]="objPost.model" #model="ngModel"  />
+		   <input type="text" id="make" name="make" placeholder="Make" class="form-control" required  ngModel [(ngModel)]="objPost.make" #make="ngModel" disabled/>
+		   <input type="text" id="model" name="model" placeholder="Model" class="form-control" required  ngModel [(ngModel)]="objPost.model" #model="ngModel" disabled  />
 		</div>
-		<label>Maker</label>
-
-		<!--Car year color-->
-		 <div class="item">
-			<div class="name-item">
-			  <input type="text" id="year" name="year" placeholder="Year" class="form-control" required  ngModel [(ngModel)]="objPost.year" #year="ngModel" />
-			  <input type="number" id="mileage" name="mileage" placeholder="mileage(km)" class="form-control" required  ngModel [(ngModel)]="objPost.mileage" #mileage="ngModel" />
-			</div>
-		</div>
+		
+		<!--Car year and mileage-->
+		
+		 
+			<input type="text" id="year" name="year" placeholder="Year" class="form-control" required  ngModel [(ngModel)]="objPost.year" #year="ngModel" />
+			<label>Mileage</label>	
+			<input type="number" id="mileage" name="mileage" placeholder="mileage(km)" class="form-control" required  ngModel [(ngModel)]="objPost.mileage" #mileage="ngModel" />
+		
+		 <!--Price-->      
+		 <label for="price">Price</label>
+		 <input type="number" id="price" name="price" placeholder="price" class="form-control" required ngModel
+				[(ngModel)]="objPost.price" #price="ngModel"/>
 		<!--mileage(km) and Car condition -->
 		<div class="item">
 		  <div class="name-item">
@@ -33,7 +36,9 @@
 			   <option value="restorable"> 5: RESTORABLE</option>
 			 </select>
 		   </div>
-
+		   <label for="title">Title</label>
+		   <input type="text" id="title" name="title" class="form-control" required ngModel
+		   [(ngModel)]="objPost.title" #title="ngModel"/>
 		<!--Car details-->
 		<h5>More details about the Car</h5>
 		<div class="item" >
@@ -42,18 +47,8 @@
 	   </div>
 	   <!--Seller information-->
 	   
-
-	<!--Erros-->
-	   <div *ngIf="make.invalid &&(make.dirty||make.touched)"class="alert">
-		  <p *ngIf="make.errors?.['required']" [ngClass]="'text-danger'" >
-			   Make is required!
-			</p>
-		</div>
-		<div *ngIf="model.invalid &&(model.dirty||model.touched)"class="alert">
-		  <p *ngIf="model.errors?.['required']" [ngClass]="'text-danger'" >
-			   Model is required!
-			</p>
-		</div>
+		<!--Erros-->
+	  
 		<div *ngIf="year.invalid &&(year.dirty||year.touched)"class="alert">
 		  <p *ngIf="year.errors?.['required']" [ngClass]="'text-danger'" >
 			   Year is required!
@@ -65,11 +60,20 @@
 		   Mileage(km)  is required!
 			</p>
 		</div>
-	
-
+		<div *ngIf="price.invalid &&(price.dirty||price.touched)" class="alert">
+			<p *ngIf="price.errors?.['required']" [ngClass]="'text-danger'">
+			  Price is required!
+			</p>
+		  </div>
+		  <div *ngIf="title.invalid &&(title.dirty||title.touched)" class="alert">
+			<p *ngIf="title.errors?.['required']" [ngClass]="'text-danger'">
+			  Title is required!
+			</p>
+		  </div>
+		
 	   <!--Button-->
 	   <div class="btn-block">
-       <button type="submit"  (click)="btnSubmitWorks()">Submit</button>
+       <button type="submit"  (click)="btnSubmitWorks()"[disabled]="!postForm.valid">Submit</button>
 	   </div>
 		 </div>
 
