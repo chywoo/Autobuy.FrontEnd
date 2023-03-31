@@ -13,6 +13,7 @@ export interface Element {
   car_price:string;
   car_description:string;
   post_author:string;
+  title:string;
   position: number;
 
 }
@@ -25,7 +26,7 @@ const ELEMENT_DATA: Element[] = [];
 })
 export class PostManagementComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'car_make','car_model','car_price', 'car_description','post_author', 'action'];
+  displayedColumns: string[] = ['position', 'title', 'car_make','car_model','car_price', 'car_description','post_author','action'];
   dataSource: Element[] = [];
   pageSize: number;
   page: number;
@@ -85,6 +86,7 @@ export class PostManagementComponent implements OnInit {
           car_model: posts[i].car.carModel,
           car_price: posts[i].price.toString(),
           car_description: posts[i].description,
+          title:posts[i].title,
           post_author: posts[i].author.fullName,
         }
 

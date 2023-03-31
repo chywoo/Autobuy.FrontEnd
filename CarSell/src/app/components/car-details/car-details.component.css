@@ -1,6 +1,6 @@
 
 html, body {
-  min-height: 80%;
+  min-height: 100%;
 }
 
 body, div, form, input, select, textarea, p, h1 {
@@ -14,10 +14,8 @@ body, div, form, input, select, textarea, p, h1 {
 }
 
 body {
-  padding-top: 60px;
   height: 100%;
 }
-
 
 h1 {
   font-size: 30px;
@@ -30,13 +28,14 @@ h1 {
 }
 
 .CarTitle {
-  font-size: 30px;
+  font-size: 40px;
   width: 700px;
   height: auto;
   line-height: 35px;
 }
 
 .testbox {
+  margin-top: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +44,7 @@ h1 {
 }
 
 form {
-  margin-top: 30%;
+  /* margin-top: 30%; */
   padding: 20px;
   border-radius: 6px;
   background: #fff;
