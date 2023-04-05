@@ -49,7 +49,7 @@ export class PostSeachComponent implements OnInit {
 
       for (let i = 0; i < posts.length; i++) {
         let card = {
-          title: posts[i].title.substring(0, 25),
+          title: posts[i].title.substring(0, 20),
           description: posts[i].description.substring(0, 200),
           buttonText: 'Button',
           img: 'assets/img/' + posts[i].car.imageURL,
