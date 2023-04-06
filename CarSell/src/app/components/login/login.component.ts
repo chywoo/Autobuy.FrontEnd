@@ -65,8 +65,12 @@ export class LoginComponent implements OnInit {
       }
 
     }, (error) => {
-      console.error(error);
-      alert("Fail to connect the server.\nPlease check the server.");
+      if (error.status == 401) {
+        alert("Login failed: Invalid username or password");
+      } else {
+        console.error(error);
+        alert("Fail to connect the server.\nPlease check the server.");
+      }
     });
   }
 }
