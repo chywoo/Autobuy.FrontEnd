@@ -41,8 +41,8 @@
     <th mat-header-cell *matHeaderCellDef> Action</th>
     <td mat-cell *matCellDef="let element">
       <div class="buttons">
-        <a target="blank" class="button" type="button" [routerLink]="['/editUser',element.username]">Edit</a>
-        <a target="blank" class="button" type="button" [routerLink]="['/deleteUser',element.username]">Delete</a>
+        <a class="button" type="button" [routerLink]="['/editUser',element.username]">Edit</a>
+        <a class="button" type="button" [routerLink]="['/deleteUser',element.username]">Delete</a>
       </div>
     </td>
   </ng-container>
